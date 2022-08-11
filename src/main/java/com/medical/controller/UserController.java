@@ -16,5 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/medical/user")
 public class UserController {
+    /**
+     * 修改密码
+     */
 
 }
