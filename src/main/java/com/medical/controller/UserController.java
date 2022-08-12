@@ -4,6 +4,7 @@ package com.medical.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
@@ -79,6 +80,16 @@ public class UserController {
     public Boolean updatePassword(@RequestBody User user){
         System.out.println(user);
         boolean save = userService.updateById(user);
+        return save;
+    }
+
+
+    @PutMapping("update")
+    public Boolean update(@RequestBody User user){
+        System.out.println(user);
+        UpdateWrapper<User> wrapper =new UpdateWrapper();
+        wrapper.eq("id", user.getId()).set("harvest_address",user.getHarvest_address());
+        boolean save = userService.update(wrapper);
         return save;
     }
 

@@ -3,9 +3,6 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
-    import java.util.Date;
-
-    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -24,10 +21,7 @@ package com.medical.entity;
     public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-
-    private int ID;
-
+    private Integer id;
     private String username;
 
     private String password;
@@ -40,8 +34,7 @@ package com.medical.entity;
             /**
             * 出生日期
             */
-//            @JsonFormat(pattern = "yyy-MM-dd",timezone = "GMT+8")
-    private Date brithday;
+    private LocalDate brithday;
 
             /**
             * 年龄
@@ -66,8 +59,7 @@ package com.medical.entity;
             /**
             * 注册时间
             */
-//            @JsonFormat(pattern = "yyy-MM-dd",timezone = "GMT+8")
-            private Date enrollDate;
+    private LocalDateTime enrollDate;
 
             /**
             * 医生外键
@@ -78,12 +70,7 @@ package com.medical.entity;
             * 封号状态
             */
     private String uState;
-            /**
-             * 用户收货地址
-             */
-    private String harvest_address;
 
 
-
-
+    private  String harvest_address;
 }
