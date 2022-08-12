@@ -1,9 +1,19 @@
 package com.medical.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.medical.entity.User;
+import com.medical.mapper.UserMapper;
+import com.medical.service.UserService;
+import org.apache.ibatis.annotations.Update;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import javax.xml.ws.Response;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * <p>
@@ -16,8 +26,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/medical/user")
 public class UserController {
+    @Autowired
+    UserService userService;
+    @Autowired
+    UserMapper userMapper;
     /**
-     * 修改密码
+     * 注册用户
      */
+    @PostMapping("/register")
+    public Boolean register(@RequestBody User user){
+        HashMap<String,Object> map=new HashMap<>();
+        map.put("username",user.getUsername());
+        List<User> user1 = userMapper.selectByMap(map);
+        user1.forEach(System.out::println);
+        if (user1.isEmpty()){
+            userService.save(user);
+            return true;
+        }else
+        return false;
+    }
+
+    /**
+     * 登录
+     */
+    @GetMapping("/login")
+    public Object userLogin(@RequestBody User user){
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",user.getUsername()).eq("password",user.getPassword());
+        List<User> user1 = userService.list(wrapper);
+        if (user1.isEmpty()){
+            return false;
+        }else
+            return true;
+    }
 
 }
