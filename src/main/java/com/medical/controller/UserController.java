@@ -84,8 +84,13 @@ public class UserController {
     }
 
 
-    @PutMapping("update")
-    public Boolean update(@RequestBody User user){
+    /**
+     * 修改收货地址
+     * @param user
+     * @return
+     */
+    @PutMapping("/userUpdate")
+    public Boolean userUpdate(@RequestBody User user){
         System.out.println(user);
         UpdateWrapper<User> wrapper =new UpdateWrapper();
         wrapper.eq("id", user.getId()).set("harvest_address",user.getHarvest_address());
@@ -93,4 +98,11 @@ public class UserController {
         return save;
     }
 
+    /**
+     *
+     *
+     *
+     *
+     *
+     */
 }
