@@ -11,8 +11,10 @@ import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.xml.ws.Response;
 import java.util.HashMap;
 import java.util.List;
@@ -62,10 +64,12 @@ public class UserController {
      * 登录
      */
     @GetMapping("/login")
-    public Object userLogin(@RequestBody User user){
+    public Object userLogin(@RequestBody User user,HttpSession session){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username",user.getUsername()).eq("password",user.getPassword());
         List<User> user1 = userService.list(wrapper);
+        session.setAttribute("user",user1.get(0));
+
         if (user1.isEmpty()){
             return false;
         }else
@@ -89,20 +93,32 @@ public class UserController {
      * @param user
      * @return
      */
-    @PutMapping("/userUpdate")
+    @GetMapping("/user")
     public Boolean userUpdate(@RequestBody User user){
         System.out.println(user);
         UpdateWrapper<User> wrapper =new UpdateWrapper();
-        wrapper.eq("id", user.getId()).set("harvest_address",user.getHarvest_address());
+        wrapper.eq("id", user.getId()).set("harvestAddress",user.getHarvestAddress());
         boolean save = userService.update(wrapper);
         return save;
     }
 
-    /**
-     *
-     *
-     *
-     *
-     *
-     */
+/*
+    */
+/**
+     * 查询用户收货地址
+     * @param user
+     * @return
+     *//*
+
+    @GetMapping("/useraddress")
+    public Object listUserAddress(@RequestBody User user){
+        System.out.println(user);
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",user.getId()).eq("harvestAddress",user.getHarvestAddress());
+        User user1 =(User)userService.list(wrapper);
+        return user1;
+    }
+*/
+
+
 }

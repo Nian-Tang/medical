@@ -70,7 +70,8 @@ package com.medical.entity;
             * 封号状态
             */
     private String uState;
-
-
-    private  String harvest_address;
+            /**
+             * 用户收货地址
+             */
+    private  String harvestAddress;
 }
