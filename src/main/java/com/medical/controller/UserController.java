@@ -102,23 +102,23 @@ public class UserController {
         return save;
     }
 
-/*
-    */
+
 /**
      * 查询用户收货地址
      * @param user
      * @return
-     *//*
+     */
 
     @GetMapping("/useraddress")
     public Object listUserAddress(@RequestBody User user){
         System.out.println(user);
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.eq("id",user.getId()).eq("harvestAddress",user.getHarvestAddress());
-        User user1 =(User)userService.list(wrapper);
-        return user1;
+        wrapper.eq("username",user.getUsername());
+        List<User> user1 =  userService.list(wrapper);
+        System.out.println(user1);
+        return user1.get(0).getHarvestAddress();
     }
-*/
+
 
 
 }
