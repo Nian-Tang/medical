@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ReviewMapper">
+    <select id="selectReviewJoinUserJoinMunutyJoinDrug" resultMap="selectReviewJoinUserJoinMunutyJoinDrug">
+        select *
+        from (( review r join user u on r.uid = u.id) join munity m on m.id = r.mid )
+                 join drug d on d.id = r.drid where u.id=#{uid}
+    </select>
 
+    <resultMap id="selectReviewJoinUserJoinMunutyJoinDrug" type="com.medical.entity.Review">
+        <id column="id" property="id"></id>
+        <result column="review" property="review"></result>
+        <result column="review_date" property="reviewDate"></result>
+        <association property="user" javaType="com.medical.entity.User">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="brithday" property="brithday"></result>
+            <result column="age" property="age"></result>
+            <result column="sex" property="sex"></result>
+            <result column="tel" property="tel"></result>
+            <result column="idcard" property="idcard"></result>
+            <result column="enroll_date" property="enrollDate"></result>
+            <result column="u_state" property="uState"></result>
+            <result column="harvest_address" property="harvestAddress"></result>
+        </association>
+
+        <association property="munity" javaType="com.medical.entity.Munity">
+            <id property="id" column="id"></id>
+            <result column="subtitle" property="subtitle"></result>
+            <result column="content" property="content"></result>
+            <result column="content_date" property="contentDate"></result>
+            <result column="c_state" property="cState"></result>
+        </association>
+
+        <association property="drug" javaType="com.medical.entity.Drug">
+            <id property="id" column="id"></id>
+            <result column="d_name" property="dName"></result>
+            <result column="describe" property="describe"></result>
+            <result column="function" property="function"></result>
+            <result column="specification" property="specification"></result>
+            <result column="character" property="character"></result>
+            <result column="usage" property="usage"></result>
+            <result column="ingredient" property="ingredient"></result>
+            <result column="taboo" property="taboo"></result>
+            <result column="stock" property="stock"></result>
+        </association>
+    </resultMap>
 </mapper>

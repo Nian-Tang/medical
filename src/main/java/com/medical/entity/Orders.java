@@ -14,13 +14,15 @@ package com.medical.entity;
 * @since 2022-08-11
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
     public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer uid;
+    private int id;
+
+    private User user;
 
             /**
             * 订单状态

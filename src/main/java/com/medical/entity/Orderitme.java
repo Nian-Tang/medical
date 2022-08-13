@@ -20,15 +20,17 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+
+    private Integer id;
             /**
             * 药品id
             */
-    private Integer drid;
+    private Drug drug;
 
             /**
             * 用户id
             */
-    private Integer uid;
+    private User user;
 
             /**
             * 购买数量
@@ -38,7 +40,7 @@ package com.medical.entity;
             /**
             * 订单id
             */
-    private Integer oid;
+    private Orders orders;
 
 
 }
