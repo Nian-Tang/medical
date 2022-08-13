@@ -2,6 +2,11 @@ package com.medical.service;
 
 import com.medical.entity.Concern;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.medical.entity.Doctor;
+import com.medical.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * <p>

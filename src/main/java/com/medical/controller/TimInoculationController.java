@@ -1,9 +1,14 @@
 package com.medical.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.medical.entity.TimInoculation;
+import com.medical.entity.User;
+import com.medical.mapper.TimInoculationMapper;
+import com.medical.service.TimInoculationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -14,7 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-08-11
  */
 @RestController
-@RequestMapping("/medical/tim-inoculation")
+@RequestMapping("/medical/timinoculation")
 public class TimInoculationController {
-
+    @Autowired
+    TimInoculationMapper timInoculationMapper;
+    //我预约的疫苗
+    @GetMapping("/selectTiminoculation")
+    public TimInoculation byid(@RequestParam User user){
+        return timInoculationMapper.selectTimInoculation(user.getId());
+    }
 }

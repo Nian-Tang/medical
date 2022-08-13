@@ -22,6 +22,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
     private String username;
 
     private String password;
