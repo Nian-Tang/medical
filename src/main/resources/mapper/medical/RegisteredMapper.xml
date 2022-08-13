@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.RegisteredMapper">
-
+    <select id="selRegistered" resultMap="selectRul">
+        select *from ((registered r join user u on r.uid=u.id) join hospital h on r.hid=h.id) join department d on r.did=d.id where u.id=#{uid};
+    </select>
+<resultMap id="selectRul" type="com.medical.entity.Registered">
+    <result column="appointment" property="appointment"></result>
+    <result column="reservationNo" property="reservationNo"></result>
+    <association property="user" javaType="com.medical.entity.User">
+        <result column="name" property="name"></result>
+        <result column="tel" property="tel"></result>
+    </association>
+    <association property="hospital" javaType="com.medical.entity.Hospital">
+        <result column="h_name" property="hName"></result>
+        <result column="address" property="address"></result>
+        <result column="h_tel" property="hTel"></result>
+        <result column="information" property="information"></result>
+    </association>
+    <association property="department" javaType="com.medical.entity.Department">
+        <result column="d_name" property="dName"></result>
+    </association>
+</resultMap>
 </mapper>
