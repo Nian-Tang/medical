@@ -2,7 +2,7 @@ package com.medical.config;
 
 /**
  * @Author GongHaiBo
- * @Date 2022/7/15 16:37
+ * @Date 2022/8/13 16:37
  * @Description
  */
 public class Result {
