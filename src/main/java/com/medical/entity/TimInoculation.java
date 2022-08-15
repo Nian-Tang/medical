@@ -20,7 +20,7 @@ package com.medical.entity;
     public class TimInoculation implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Integer id;
             /**
             * 预约时间;
             */

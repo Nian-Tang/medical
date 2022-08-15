@@ -29,14 +29,14 @@ import java.util.Map;
 public class UserController {
     @Autowired
     UserServiceImpl userServiceImpl;
-
-
-
+    /**
+     * 注册
+     * */
     @PostMapping("/register")
-    public Object insert(@RequestBody User user) {
+    public Object register(@RequestBody User user) {
         String userName = user.getUsername();
         userName = HtmlUtils.htmlEscape(userName);
-//        user.setName(userName);
+        user.setName(userName);
         List<User> users = userServiceImpl.selectByUserName(userName);
         if (users.size() == 0) {
             userServiceImpl.save(user);
