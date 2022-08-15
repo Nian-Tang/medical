@@ -1,43 +1,42 @@
 package com.medical.entity;
 
-    import java.io.Serializable;
-    import java.util.List;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
-    import lombok.Data;
-    import lombok.EqualsAndHashCode;
-    import lombok.experimental.Accessors;
-    import org.apache.ibatis.annotations.Many;
+import java.io.Serializable;
+
 
 /**
-* <p>
-    * 订单
-    * </p>
-*
-* @author JiaJieTang
-* @since 2022-08-11
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    @Accessors(chain = true)
-    public class Orders implements Serializable {
+ * <p>
+ * 订单
+ * </p>
+ *
+ * @author JiaJieTang
+ * @since 2022-08-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer id;
 
 
-
     private Integer uid;
 
-            /**
-            * 订单状态
-            */
+    /**
+     * 订单状态
+     */
     private String orderState;
 
-            /**
-            * 订单编号
-            */
+    /**
+     * 订单编号
+     */
     private Integer orderNumber;
+
 
 
 

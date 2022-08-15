@@ -11,14 +11,13 @@ import org.springframework.stereotype.Repository;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
      User login(@Param("username") String username, @Param("password") String password);
-
 
 }

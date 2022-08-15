@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
  * 用户表 前端控制器
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
 @RestController
 @RequestMapping("/medical/user")
@@ -34,14 +34,6 @@ public class UserController {
         }
         return R.error("账号或密码错误！");
     }
-
-    @GetMapping("/index")
-    @ResponseBody
-    public String index() {
-        return ("登入成功");
-
-    }
-
 
 
 }

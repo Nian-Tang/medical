@@ -9,12 +9,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 用户表 服务类
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
 public interface UserService extends IService<User> {
 
-    //登录时通过账号和密码获取用户
     User login(User user);
-//    public User login(String username,String password);
+
 }

@@ -1,6 +1,5 @@
 package com.medical.entity;
 
-import cn.hutool.db.sql.Order;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -47,9 +46,5 @@ public class Orderitme implements Serializable {
      * 订单id
      */
     private Integer oid;
-
-
-
-
 
 }

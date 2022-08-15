@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
  * 用户表 服务实现类
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
-@Service("UserService")
+@Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
@@ -26,4 +26,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User login(User user) {
         return userMapper.login(user.getUsername(),user.getPassword());
     }
+
 }
