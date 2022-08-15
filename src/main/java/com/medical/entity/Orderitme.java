@@ -24,12 +24,11 @@ public class Orderitme implements Serializable {
     /**
      * id
      */
-    private int id;
 
-
-    /**
-     * 药品id
-     */
+    private Integer id;
+            /**
+            * 药品id
+            */
     private Integer drid;
 
     /**

@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,9 +18,13 @@ import org.springframework.stereotype.Repository;
  * @since 2022-08-14
  */
 
+
+
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
-     User login(@Param("username") String username, @Param("password") String password);
+    @Select("select * from user where username = #{userName}")
+    List<User> selectByUserName(String userName);
+    User login(@Param("username") String username, @Param("password") String password);
 
 }

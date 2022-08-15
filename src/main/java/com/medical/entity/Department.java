@@ -1,12 +1,10 @@
 package com.medical.entity;
-
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -22,11 +20,9 @@ import java.time.LocalDateTime;
 public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private Integer id;
 
-    /**
-     * id
-     */
-    private int id;
+    
 
     /**
      * 科室名称

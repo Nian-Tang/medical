@@ -25,11 +25,10 @@ public class Munity implements Serializable {
     /**
      * id
      */
-    private int id;
-
-    /**
-     * 小标题
-     */
+    private Integer id;
+            /**
+            * 小标题
+            */
     private String subtitle;
 
     /**

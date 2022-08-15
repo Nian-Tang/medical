@@ -20,7 +20,7 @@ package com.medical.entity;
     public class Registered implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Integer id;
             /**
             * 用户id
             */

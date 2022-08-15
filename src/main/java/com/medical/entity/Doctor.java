@@ -22,14 +22,15 @@ public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
     /**
      * id
      */
-    private int id;
+   private Integer id;
+           /**
+            * 医生录入时间
+            */
 
-    /**
-     * 医生录入时间
-     */
     private LocalDateTime entryDate;
 
     /**

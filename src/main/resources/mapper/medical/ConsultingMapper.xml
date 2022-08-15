@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConsultingMapper">
+    <select id="selectUserJoinConsultingMapper" resultMap="consulting">
+        SELECT * FROM consulting AS c INNER JOIN user AS u ON c.u_id=u.id INNER JOIN doctor AS d  ON c.doid=d.id where u.id = #{uid};
+    </select>
 
+    <resultMap id="consulting" type="com.medical.entity.Consulting">
+        <id property="id" column="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="describe" property="describe"></result>
+        <result column="c_state" property="cState"></result>
+        <result column="describle" property="describle"></result>
+        <collection property="users" ofType="com.medical.entity.User">
+            <id property="id" column="id"></id>
+            <result column="username" property="username"></result>
+            <result column="password" property="password"></result>
+            <result column="name" property="name"></result>
+            <result column="brithday" property="brithday"></result>
+            <result column="age" property="age"></result>
+            <result column="sex" property="sex"></result>
+            <result column="tel" property="tel"></result>
+            <result column="idcard" property="idcard"></result>
+            <result column="enroll_date" property="enrollDate"></result>
+            <result column="u_state" property="uState"></result>
+        </collection>
+        <collection property="doctors" ofType="com.medical.entity.Doctor">
+            <id property="id" column="id"></id>
+            <result column="entry_date" property="entryDate"></result>
+            <result column="title" property="title"></result>
+            <result column="brief" property="brief"></result>
+            <result column="point" property="point"></result>
+            <result column="hours_practice" property="hoursPractice"></result>
+            <result column="excel" property="excel"></result>
+            <result column="consult_price" property="consultPrice"></result>
+        </collection>
+    </resultMap>
 </mapper>
