@@ -1,6 +1,8 @@
 package com.medical.entity;
 
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -20,6 +22,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 用户id
             */
@@ -30,5 +34,6 @@ package com.medical.entity;
             */
     private Integer uiid;
 
-
+    @TableField(exist = false)
+    private User user;
 }
