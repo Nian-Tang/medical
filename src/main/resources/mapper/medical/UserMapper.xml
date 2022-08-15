@@ -9,6 +9,10 @@
         select id,username,password,name,brithday,age,sex,tel,idcard,enroll_date,doid,u_state,vip_id from user where username = #{username};
     </select>
 
+    <select id="login" resultType="User">
+   select * from user where username = #{username} and password = #{password};
+  </select>
+
     <select id="getUserId" resultType="User">
         select * from user where id = #{id};
     </select>

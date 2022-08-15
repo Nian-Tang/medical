@@ -6,13 +6,16 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+
+import java.util.List;
+
 /**
  * <p>
  * 用户表 服务类
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
 public interface UserService extends IService<User> {
 
@@ -45,4 +48,7 @@ public interface UserService extends IService<User> {
      */
     List<User> getAllMyConcernDoctor(@Param("uid") int uid);
 
+    User login(User user);
+
+    List<User> selectByUserName(String userName);
 }
