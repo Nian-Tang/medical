@@ -79,7 +79,7 @@ public class UserController {
     }
 
     /**
-     * 我的历史病历
+     * 历史病历
      * @param session
      * @return
      */

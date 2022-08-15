@@ -26,7 +26,7 @@ import java.util.Map;
  *  前端控制器
  * </p>
  *
- * @author JiaJieTang
+ * @author ZhangPan
  * @since 2022-08-11
  */
 @RestController
@@ -39,7 +39,7 @@ public class VipController {
     private UserMapper userMapper;
 
     /**
-     * 会员充值续费功能
+     * 会员充值续费功能到期充值
      * @param num
      * @param session
      * @return

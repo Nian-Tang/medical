@@ -25,7 +25,7 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
     @TableId(type = IdType.AUTO)
-    private int id;
+    private int id ;
 
             /**
             * 注册时间

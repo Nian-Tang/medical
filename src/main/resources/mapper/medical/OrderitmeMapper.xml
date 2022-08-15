@@ -26,5 +26,5 @@
             <result property="stock" column="stock"></result>
             <result property="cid" column="cid"></result>
         </association>
-    </resultMap>
+    </resultMap> 
 </mapper>

@@ -14,6 +14,6 @@ import java.util.List;
  * @author ZhangPan
  * @since 2022-08-11
  */
-public interface OrderitmeMapper extends BaseMapper<Orderitme> {
+public interface OrderitmeMapper extends BaseMapper<Orderitme>{
     List<Orderitme> selectOrderByUser(User user);
 }
