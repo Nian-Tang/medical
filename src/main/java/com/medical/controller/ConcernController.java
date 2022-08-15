@@ -27,7 +27,8 @@ public class ConcernController {
     ConcernServiceImpl concernService;
 
     /**
-     *
+     *查询关注的用户
+     * JiaJieTang
      * @param session
      * @return
      */
