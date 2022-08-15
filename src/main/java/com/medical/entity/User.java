@@ -4,10 +4,8 @@ package com.medical.entity;
     import java.time.LocalDateTime;
     import java.io.Serializable;
 
+    import java.util.List;
     import java.util.Date;
-
-
-
     import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.annotation.TableId;
 
@@ -32,7 +30,6 @@ package com.medical.entity;
 
     @TableId(type = IdType.AUTO)
     private Integer id;
-
 
     private String username;
 
@@ -97,6 +94,12 @@ package com.medical.entity;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    private Consulting consulting;
+    
+    public int getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -186,8 +189,6 @@ package com.medical.entity;
     public void setuState(String uState) {
         this.uState = uState;
     }
-
-
 
     @Override
     public String toString() {

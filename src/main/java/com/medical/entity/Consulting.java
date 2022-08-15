@@ -3,8 +3,10 @@ package com.medical.entity;
     import java.time.LocalDateTime;
     import java.io.Serializable;
 
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.annotation.TableId;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -26,9 +28,12 @@ package com.medical.entity;
     @TableId(type = IdType.AUTO)
     private int id;
 
+    private int id;
+
             /**
             * 创建时间
             */
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-mm-ss")
     private LocalDateTime createDate;
 
             /**
@@ -56,4 +61,7 @@ package com.medical.entity;
             */
     private Integer doid;
 
+    public String getDescribe() {
+        return describe;
+    }
 }

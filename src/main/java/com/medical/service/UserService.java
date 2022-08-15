@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+import java.util.List;
+
 /**
  * <p>
  * 用户表 服务类
@@ -17,7 +19,8 @@ import java.util.List;
  */
 @Service
 public interface UserService extends IService<User> {
-//    User get(int id);
+
+    List<User> findCases(int id);
 
     double add(User user);
 
@@ -27,6 +30,5 @@ public interface UserService extends IService<User> {
 
     List<User> getUser(int id);
 
-//    boolean delete(User user);
-
+    List<User> byCases(Integer id);
 }

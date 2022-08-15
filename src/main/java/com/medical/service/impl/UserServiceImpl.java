@@ -19,26 +19,26 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-    @Autowired
-    private UserMapper userMapper;
 
-//    @Override
-//    public User get(int id) {
-//        return userMapper.get(id);
-//    }
+    @Autowired 
+    UserMapper userMapper;
+    
+    @Override
+    public List<User> findCases(Integer id) {
+        return userMapper.findCases(id);
+    }
+   
+
+    @Override
+    public List<User> findCases(Integer id) {
+        return userMapper.findCases(id);
+    }
 
 
     @Override
     public double add(User user) {
         return userMapper.add(user);
     }
-
-
-//    @Override
-//    public boolean delete(User user) {
-//
-//        return userMapper.delete(user)>0;
-//    }
 
     @Override
     public double update(User user) {
@@ -55,5 +55,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userMapper.getUser(id);
     }
 
-
+    @Override
+    public List<User> byCases(Integer id) {
+        return userMapper.byCases(id);
+    }
 }

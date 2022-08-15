@@ -10,9 +10,6 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
-
-
 /**
  * <p>
  * 用户表 Mapper 接口
@@ -22,20 +19,19 @@ import java.util.List;
  * @since 2022-08-11
  */
 public interface UserMapper extends BaseMapper<User> {
-     List<Consulting> selectUser(User user);
 
-//    @Select("select harvest_address from user where id = #{id}")
-//    public User get(int id);
+     List<User> findCases(int id);
+
+     List<User> byCases(int id);
+
+     List<Consulting> selectUser(User user);
 
     List<User> getUser(int id);
 
-
     int add(User user);
-
 
     int update(User user);
 
-//    int delete(User user);
-
     int upuser(User user);
+
 }
