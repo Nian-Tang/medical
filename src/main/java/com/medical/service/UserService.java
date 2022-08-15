@@ -4,6 +4,8 @@ import com.medical.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  * 用户表 服务类
@@ -34,5 +36,13 @@ public interface UserService extends IService<User> {
      * @return
      */
     User getUserId(@Param("id") int id);
+
+
+    /**
+     * 根据用户uid（用户表的外键）查询用户关注的医生
+     * @param uid
+     * @return
+     */
+    List<User> getAllMyConcernDoctor(@Param("uid") int uid);
 
 }

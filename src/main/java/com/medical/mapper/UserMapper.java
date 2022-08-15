@@ -40,5 +40,13 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     User getUserId(@Param("id") int id);
+
+
+    /**
+     * 根据用户uid（用户表的外键）查询用户关注的医生
+     * @param uid
+     * @return
+     */
+    List<User> getAllMyConcernDoctor(@Param("uid") int uid);
 }
 

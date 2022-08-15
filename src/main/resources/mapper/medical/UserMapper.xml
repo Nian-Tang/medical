@@ -12,4 +12,12 @@
     <select id="getUserId" resultType="User">
         select * from user where id = #{id};
     </select>
+
+
+    <select id="getAllMyConcernDoctor" resultType="User">
+        SELECT user.username,user.name,user.age,user.sex,user.tel,user.doid,
+        doctor.title,doctor.brief,doctor.point,doctor.did,doctor.hid,doctor.hours_practice,doctor.excel
+        FROM user JOIN doctor ON user.doid = doctor.id JOIN concern on
+        user.id = concern.uiid where concern.uid = #{uid} and user.doid is not null;
+    </select>
 </mapper>

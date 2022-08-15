@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 用户表 服务实现类
@@ -79,4 +81,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getUserId(int id) {
         return userMapper.getUserId(id);
     }
+
+
+    /**
+     * 根据用户uid（用户表的外键）查询用户关注的医生
+     *
+     * @param uid
+     * @return
+     */
+    @Override
+    public List<User> getAllMyConcernDoctor(int uid) {
+        return userMapper.getAllMyConcernDoctor(uid);
+    }
+
+
 }
