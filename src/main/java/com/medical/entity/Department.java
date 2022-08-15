@@ -24,7 +24,7 @@ import lombok.experimental.Accessors;
 public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private int id;
 
     /**
      * 科室名称

@@ -22,7 +22,7 @@ import lombok.experimental.Accessors;
 public class Vaccine implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private int id;
     /**
      * 疫苗名称
      */

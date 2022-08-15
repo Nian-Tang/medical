@@ -19,7 +19,7 @@ package com.medical.entity;
     public class Orderitme implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private int id;
             /**
             * 药品id
             */

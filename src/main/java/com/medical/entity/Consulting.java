@@ -22,7 +22,7 @@ package com.medical.entity;
     public class Consulting implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private int id;
 
     /**
             * 创建时间
@@ -57,6 +57,6 @@ package com.medical.entity;
     private List<User> users;
 
     private List<Doctor> doctors;
-    
+
 
 }

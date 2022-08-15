@@ -20,7 +20,7 @@ package com.medical.entity;
     public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private int id;
             /**
             * 医生录入时间
             */

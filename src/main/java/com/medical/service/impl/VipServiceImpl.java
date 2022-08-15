@@ -21,11 +21,8 @@ public class VipServiceImpl extends ServiceImpl<VipMapper, Vip> implements VipSe
     /**
      *
      */
-    @Autowired
-    VipMapper vipMapper;
+//    @Autowired
+//    VipMapper vipMapper;
+//
 
-    @Override
-    public boolean updateTime(Integer num,Integer id) {
-        return vipMapper.updateTime(num,id)>0;
-    }
 }

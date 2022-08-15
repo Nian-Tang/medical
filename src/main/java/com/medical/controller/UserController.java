@@ -1,6 +1,7 @@
 package com.medical.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.medical.entity.User;
 import com.medical.service.impl.UserServiceImpl;
 import com.medical.service.impl.VipServiceImpl;
@@ -38,7 +39,7 @@ public class UserController {
         userName = HtmlUtils.htmlEscape(userName);
         user.setName(userName);
         List<User> users = userServiceImpl.selectByUserName(userName);
-        if (users.size() == 0) {
+        if (users.size()==0) {
             userServiceImpl.save(user);
             return Result.success("注册成功");
         }else {
