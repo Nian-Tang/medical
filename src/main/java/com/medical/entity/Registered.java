@@ -33,6 +33,7 @@ public class Registered implements Serializable {
      */
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Integer id;
+
     private Integer uid;
 
     /**

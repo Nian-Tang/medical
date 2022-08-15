@@ -26,8 +26,7 @@ package com.medical.entity;
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.ASSIGN_ID)
-
-    private Integer id;
+    private int id;
             /**
             * 预约时间;
             */
