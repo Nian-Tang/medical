@@ -1,14 +1,18 @@
 package com.medical.entity;
 
     import java.time.LocalDateTime;
-    import com.baomidou.mybatisplus.annotation.TableField;
     import java.io.Serializable;
+    import java.util.Date;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
+
 /**
 * <p>
-    * 科室
+    *
     * </p>
 *
 * @author JiaJieTang
@@ -17,25 +21,23 @@ package com.medical.entity;
     @Data
     @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
-    public class Department implements Serializable {
+    public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    private Integer id;
-
-            /**
-            * 科室名称
-            */
-    private String dName;
+    @TableId(type = IdType.AUTO)
+    private int id ;
 
             /**
-            * 录入时间
+            * 注册时间
             */
-        @TableField("Entry_date")
-    private LocalDateTime entryDate;
+    private Date registerDate;
 
             /**
-            * 医院外键
+            * 会员到期时间
             */
-    private Integer hid;
+    private Date expireDate;
+
+
+
+
 }

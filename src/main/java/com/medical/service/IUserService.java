@@ -1,17 +1,16 @@
 package com.medical.service;
 
-import com.medical.entity.TimInoculation;
+import com.medical.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 预约疫苗 服务类
+ * 用户表 服务类
  * </p>
  *
  * @author JiaJieTang
  * @since 2022-08-11
  */
-public interface TimInoculationService extends IService<TimInoculation> {
-
+public interface IUserService extends IService<User> {
 
 }

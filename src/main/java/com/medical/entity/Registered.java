@@ -1,7 +1,11 @@
 package com.medical.entity;
 
+    import java.beans.Transient;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +25,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 用户id
             */
@@ -29,12 +35,12 @@ package com.medical.entity;
             /**
             * 医院id
             */
-    private Integer hid;
+    private Hospital hospital;
 
             /**
             * 科室id
             */
-    private Integer did;
+    private Department department;
 
             /**
             * 预约时间
@@ -45,6 +51,12 @@ package com.medical.entity;
             * 预约单号
             */
     private String reservationNo;
+
+//    @TableField(exist = false)
+//    private Hospital hospital;
+//
+//    @TableField(exist = false)
+//    private Department department;
 
 
 }
