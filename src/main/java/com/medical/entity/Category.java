@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
+
  * <p>
  * 药品分类
  * </p>
@@ -18,13 +19,11 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class Category implements Serializable {
-
     private static final long serialVersionUID = 1L;
     /**
      * id
      */
-
-    private Integer id;
+    private int id;
 
     /**
      * 类别

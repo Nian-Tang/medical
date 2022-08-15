@@ -21,11 +21,12 @@ public class Orderitme implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
     /**
      * id
      */
 
-    private Integer id;
+    private int id;
             /**
             * 药品id
             */

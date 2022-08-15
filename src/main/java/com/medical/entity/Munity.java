@@ -21,11 +21,12 @@ import java.time.LocalDateTime;
 public class Munity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+=
 
     /**
      * id
      */
-    private Integer id;
+    private int id;
             /**
             * 小标题
             */

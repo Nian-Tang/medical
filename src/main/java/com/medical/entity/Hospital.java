@@ -24,11 +24,12 @@ public class Hospital implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
     /**
      * id
      */
     @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private Integer id;
+    private int id;
     /**
      * 医院名称
      */

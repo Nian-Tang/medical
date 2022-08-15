@@ -37,7 +37,7 @@ public class User implements Serializable {
 
 
     @TableId(value = "id", type = IdType.ASSIGN_ID)  //zdh
-    private Integer id;
+    private int id;
 
     private String username;
 

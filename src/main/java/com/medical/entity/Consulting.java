@@ -29,7 +29,7 @@ public class Consulting implements Serializable {
     /**
      * id
      */
-    private Integer id;
+    private int id;
    /**
      * 创建时间
      */
@@ -63,6 +63,6 @@ public class Consulting implements Serializable {
     private List<User> users;
 
     private List<Doctor> doctors;
-    
+
 
 }

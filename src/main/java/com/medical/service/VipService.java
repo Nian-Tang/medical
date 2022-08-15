@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface VipService extends IService<Vip> {
 
-    public boolean updateTime(Integer num,Integer id);
+
 }

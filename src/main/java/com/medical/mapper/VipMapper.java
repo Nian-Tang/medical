@@ -19,10 +19,5 @@ import java.util.Date;
  */
 @Mapper
 public interface VipMapper extends BaseMapper<Vip> {
-    //修改到期时间
-    @Update("update vip set expire_date = date_add(expire_date,interval #{num} month) WHERE id= #{id}")
-    int updateTime(Integer id, Integer num);
 
-//    @Insert("INSERT INTO vip (expire_date) SELECT date_add(expire_date,interval #{num} month) FROM vip")
-//    Boolean insertTime(Integer num);
 }

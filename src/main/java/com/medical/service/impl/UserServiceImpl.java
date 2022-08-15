@@ -30,7 +30,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     }
 
     @Override
-    public List<User> selectByUserName(String userName) {
+    public  List<User> selectByUserName(String userName) {
         return userMapper.selectByUserName(userName);
     }
 }
