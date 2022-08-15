@@ -4,6 +4,7 @@ import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,15 @@ import org.springframework.stereotype.Service;
  * @author JiaJieTang
  * @since 2022-08-11
  */
-@Service
+@Service("UserService")
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+    @Autowired
+    UserMapper userMapper;
+
+
+    @Override
+    public User login(User user) {
+        return userMapper.login(user.getUsername(),user.getPassword());
+    }
 }

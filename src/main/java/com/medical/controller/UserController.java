@@ -1,9 +1,15 @@
 package com.medical.controller;
 
+import com.medical.custom.result.R;
+import com.medical.entity.User;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.medical.service.UserService;
+import com.medical.utils.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+
 
 /**
  * <p>
@@ -16,5 +22,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/medical/user")
 public class UserController {
+    @Autowired  private UserService userService;
+
+
+    @PostMapping(path = "/login")
+    public R login(@RequestBody User user) {
+        User loginUser = userService.login(user);
+        if (null != loginUser) {
+            String token = JwtUtil.generateToken(loginUser);
+            return R.ok().put("token", token);
+        }
+        return R.error("账号或密码错误！");
+    }
+
+    @GetMapping("/index")
+    @ResponseBody
+    public String index() {
+        return ("登入成功");
+
+    }
+
+
 
 }

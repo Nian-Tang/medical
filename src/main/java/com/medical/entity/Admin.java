@@ -20,9 +20,14 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-            /**
-            * 账户名
-            */
+           /**
+           *  id
+           */
+    private int id;
+
+           /**
+           *  账户名
+           */
     private String name;
 
             /**

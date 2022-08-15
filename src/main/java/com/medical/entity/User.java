@@ -3,8 +3,10 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
+
     import lombok.experimental.Accessors;
 
 /**
@@ -16,11 +18,11 @@ package com.medical.entity;
 * @since 2022-08-11
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
     public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private Long id;
 
     private String username;
 
@@ -71,5 +73,9 @@ package com.medical.entity;
             */
     private String uState;
 
+           /**
+           * 用户收货地址
+           */
+    private String harvest_address;
 
 }

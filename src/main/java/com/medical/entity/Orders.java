@@ -1,9 +1,12 @@
 package com.medical.entity;
 
     import java.io.Serializable;
+    import java.util.List;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
+    import org.apache.ibatis.annotations.Many;
 
 /**
 * <p>
@@ -20,6 +23,10 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
+
+
     private Integer uid;
 
             /**
@@ -31,6 +38,8 @@ package com.medical.entity;
             * 订单编号
             */
     private Integer orderNumber;
+
+
 
 
 }
