@@ -3,6 +3,8 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +23,8 @@ package com.medical.entity;
     public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private int id;
 
     private String username;
 
@@ -70,6 +74,15 @@ package com.medical.entity;
             * 封号状态
             */
     private String uState;
+
+ //            咨询表
+    private Consulting consulting;
+
+    public int getId() {
+        return id;
+    }
+
+
 
 
 }

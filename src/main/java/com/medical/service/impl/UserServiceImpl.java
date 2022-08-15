@@ -4,7 +4,10 @@ import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +19,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    @Autowired UserMapper userMapper;
+    @Override
+    public List<User> findCases(Integer id) {
+        return userMapper.findCases(id);
+    }
 
+    @Override
+    public List<User> byCases(Integer id) {
+        return userMapper.byCases(id);
+    }
 }
