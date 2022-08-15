@@ -1,10 +1,11 @@
 package com.medical.entity;
 
-    import java.time.LocalDateTime;
-    import java.io.Serializable;
-    import lombok.Data;
-    import lombok.EqualsAndHashCode;
-    import lombok.experimental.Accessors;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
 * <p>
@@ -20,7 +21,7 @@ package com.medical.entity;
     public class Munity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Integer id;
             /**
             * 小标题
             */
@@ -46,5 +47,5 @@ package com.medical.entity;
             */
     private Integer uid;
 
-
+    private User user;
 }
