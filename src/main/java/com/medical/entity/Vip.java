@@ -1,6 +1,8 @@
 package com.medical.entity;
 
+    import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.Date;
 
     import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,32 +12,32 @@ package com.medical.entity;
 
 /**
 * <p>
-    * 订单
+    *
     * </p>
 *
 * @author JiaJieTang
 * @since 2022-08-11
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
-    public class Orders implements Serializable {
+    public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @TableId(type = IdType.AUTO)
     private int id;
 
-    private Integer uid;
+            /**
+            * 注册时间
+            */
+    private Date registerDate;
 
             /**
-            * 订单状态
+            * 会员到期时间
             */
-    private String orderState;
+    private Date expireDate;
 
-            /**
-            * 订单编号
-            */
-    private Integer orderNumber;
+
 
 
 }

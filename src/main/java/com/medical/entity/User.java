@@ -3,6 +3,9 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +24,8 @@ package com.medical.entity;
     public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @TableId(type = IdType.AUTO)
+    private int id;
 
     private String username;
 
@@ -70,6 +75,15 @@ package com.medical.entity;
             * 封号状态
             */
     private String uState;
+    /**
+     * vip外键
+     */
+    private Integer vipId;
+
+    /**
+     * 用户收货地址
+     */
+    private String harvestAddress;
 
 
 }
