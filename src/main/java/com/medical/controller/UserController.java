@@ -1,5 +1,10 @@
 package com.medical.controller;
 
+import com.medical.entity.User;
+import com.medical.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.medical.entity.Consulting;
@@ -11,7 +16,6 @@ import com.medical.mapper.UserMapper;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -78,6 +82,50 @@ public class UserController {
         return map;
     }
 
+    @Autowired
+    private UserService userService;
+    
+    @PostMapping("/getUser")
+    public Map<String, Object> getUser(int id) {
+        List<User> getUser = userService.getUser(id);
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", "200");
+        map.put("msg", "查询成功");
+        map.put("data", getUser);
+        return map;
+    }
+
+    @PostMapping("/adduser")
+    public Map<String, Object> add(User user) {
+        double add = userService.add(user);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code", "200");
+        map.put("msg", "增加成功");
+        map.put("data", add);
+        return map;
+    }
+
+    @PutMapping("/update")
+    public Map<String, Object> update(User user){
+        double update = userService.update(user);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code", "200");
+        map.put("msg", "更改成功");
+        map.put("data", update);
+        return map;
+    }
+
+    @PutMapping("/upuser")
+    public Map<String, Object> upuser(User user){
+        double update = userService.upuser(user);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code", "200");
+        map.put("msg", "更改成功");
+        map.put("data", update);
+        return map;
+    }
+
+
     /**
      * 历史病历
      * @param session
@@ -109,4 +157,8 @@ public class UserController {
         map.put("data",orderitmes);
         return map;
     }
+
 }
+
+
+
