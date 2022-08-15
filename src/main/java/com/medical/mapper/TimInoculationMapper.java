@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
 
+    TimInoculation selectTimInoculation(Integer id);
 }

@@ -2,4 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.OrderitmeMapper">
 
+    <select id="selectOrderByUser" resultMap="oiMap">
+    select * from orderitme oi, orders o,drug d where  oi.oid = o.id  and oi.drid = d.id and oi.uid=#{id}
+</select>
+    <resultMap id="oiMap" type="orderitme">
+        <id property="id" column="id"></id>
+        <result property="number" column="number"></result>
+        <association property="orders" column="oid" javaType="orders">
+            <id property="id" column="id"></id>
+            <result property="orderState" column="order_state"></result>
+            <result property="orderNumber" column="order_number"></result>
+        </association>
+        <association property="drug" column="drid" javaType="drug">
+            <id property="id" column="id"></id>
+            <result property="dName" column="d_name"></result>
+            <result property="describe" column="describe"></result>
+            <result property="function" column="function"></result>
+            <result property="specification" column="specification"></result>
+            <result property="character" column="character"></result>
+            <result property="usage" column="usage"></result>
+            <result property="ingredient" column="ingredient"></result>
+            <result property="taboo" column="taboo"></result>
+            <result property="stock" column="stock"></result>
+            <result property="cid" column="cid"></result>
+        </association>
+    </resultMap> 
 </mapper>

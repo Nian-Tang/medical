@@ -21,6 +21,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
+
             /**
             * 预约时间;
             */
@@ -29,7 +31,7 @@ package com.medical.entity;
             /**
             * 疫苗id
             */
-    private Integer vid;
+    private Vaccine vaccine;
 
             /**
             * 用户id
@@ -39,7 +41,7 @@ package com.medical.entity;
             /**
             * 医院id
             */
-    private Integer hid;
+    private Hospital hospital;
 
 
 }

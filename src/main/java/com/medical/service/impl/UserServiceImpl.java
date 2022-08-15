@@ -19,10 +19,40 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-    @Autowired UserMapper userMapper;
+
+    @Autowired 
+    UserMapper userMapper;
+    
     @Override
     public List<User> findCases(Integer id) {
         return userMapper.findCases(id);
+    }
+   
+
+    @Override
+    public List<User> findCases(Integer id) {
+        return userMapper.findCases(id);
+    }
+
+
+    @Override
+    public double add(User user) {
+        return userMapper.add(user);
+    }
+
+    @Override
+    public double update(User user) {
+        return userMapper.update(user);
+    }
+
+    @Override
+    public double upuser(User user) {
+        return userMapper.upuser(user);
+    }
+
+    @Override
+    public List<User> getUser(int id) {
+        return userMapper.getUser(id);
     }
 
     @Override

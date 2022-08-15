@@ -20,6 +20,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 医院名称
             */
@@ -39,6 +41,5 @@ package com.medical.entity;
             * 医院信息
             */
     private String information;
-
 
 }

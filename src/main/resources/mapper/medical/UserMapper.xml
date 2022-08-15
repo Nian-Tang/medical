@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.UserMapper">
+<select id="selectUser" resultType="consulting">
+    SELECT * FROM  consulting where u_id=#{id}
+</select>
 
     <resultMap id="byCases" type="com.medical.entity.User">
         <id property="id" column="id"/>
@@ -36,11 +39,26 @@
         select consulting.describe
         <include refid="select"></include>
     </select>
-    
-    
-    
-    
-    
 
-    
+    <select id="getUser" resultType="com.medical.entity.User">
+select harvest_address from `user` where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.medical.entity.User">
+insert into user( harvest_address ) values (#{harvest_address})
+    </insert>
+
+
+    <!--    <delete id="delete" parameterType="com.medical.entity.User">-->
+<!--delete from user where id=#{id}-->
+<!--    </delete>-->
+
+    <update id="update" parameterType="com.medical.entity.User">
+    update user set harvest_address=#{harvest_address} where id=#{id}
+    </update>
+
+    <update id="upuser" parameterType="com.medical.entity.User">
+    update user set harvest_address=#{harvest_address} where id=#{id}
+    </update>
 </mapper>
+

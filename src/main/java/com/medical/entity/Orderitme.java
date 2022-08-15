@@ -1,6 +1,13 @@
 package com.medical.entity;
 
+    import java.beans.Transient;
     import java.io.Serializable;
+    import java.util.List;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableField;
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import com.mysql.cj.x.protobuf.MysqlxCrud;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -19,6 +26,9 @@ package com.medical.entity;
     public class Orderitme implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableId(type = IdType.AUTO)
+    private int id ;
 
             /**
             * 药品id
@@ -40,5 +50,9 @@ package com.medical.entity;
             */
     private Integer oid;
 
+    @TableField(exist = false)
+    private Orders orders;
+    @TableField(exist = false)
+    private Drug drug;
 
 }
