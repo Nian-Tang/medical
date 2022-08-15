@@ -10,8 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Date: 2022/8/9 16:27
  * @Description:
  */
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class CrossConfig implements WebMvcConfigurer {
 
     @Override

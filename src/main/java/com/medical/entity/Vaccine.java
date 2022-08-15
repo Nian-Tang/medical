@@ -3,6 +3,9 @@ package com.medical.entity;
     import java.time.LocalDateTime;
     import java.time.LocalTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -22,6 +25,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private Integer id;
             /**
             * 疫苗名称
             */
