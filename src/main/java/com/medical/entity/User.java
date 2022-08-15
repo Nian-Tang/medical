@@ -1,13 +1,22 @@
 package com.medical.entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+
+
+
+
+    import com.fasterxml.jackson.annotation.JsonIgnoreProperties; //hhb
+
+    import java.time.LocalDate;
+    import java.time.LocalDateTime;
+    import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import lombok.Data;
+    import lombok.EqualsAndHashCode;
+    import lombok.experimental.Accessors;
+
 
 /**
  * <p>
@@ -24,6 +33,9 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
+
+    @TableId(value = "id", type = IdType.ASSIGN_ID)  //zdh
     private Integer id;
 
     private String username;
