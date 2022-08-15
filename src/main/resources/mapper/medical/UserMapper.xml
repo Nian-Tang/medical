@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.UserMapper">
+    <update id="updatePasswordByUsername" parameterType="User">
+        update user set password = #{password} where username = #{username};
+    </update>
+    
+    <select id="getUsername" resultType="User">
+        select id,username,password,name,brithday,age,sex,tel,idcard,enroll_date,doid,u_state,vip_id from user where username = #{username};
+    </select>
+
     <select id="login" resultType="User">
    select * from user where username = #{username} and password = #{password};
   </select>
 
+    <select id="getUserId" resultType="User">
+        select * from user where id = #{id};
+    </select>
+
+
+    <select id="getAllMyConcernDoctor" resultType="User">
+        SELECT user.username,user.name,user.age,user.sex,user.tel,user.doid,
+        doctor.title,doctor.brief,doctor.point,doctor.did,doctor.hid,doctor.hours_practice,doctor.excel
+        FROM user JOIN doctor ON user.doid = doctor.id JOIN concern on
+        user.id = concern.uiid where concern.uid = #{uid} and user.doid is not null;
+    </select>
 </mapper>
