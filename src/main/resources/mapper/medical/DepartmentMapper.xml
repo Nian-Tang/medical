@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.DepartmentMapper">
 
+    <select id="getDep" resultType="com.medical.entity.Department">
+select d_name from `department` where id=#{id}
+    </select>
+
+    <select id="getks" resultType="com.medical.entity.Department">
+SELECT department.d_name,hospital.id from department LEFT JOIN hospital ON hospital.id=department.hid;
+-- select d_name from department where  hid=#{id};
+    </select>
 </mapper>
