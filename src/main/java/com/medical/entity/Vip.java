@@ -1,49 +1,44 @@
 package com.medical.entity;
 
+import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 医院
+ *
  * </p>
  *
  * @author JiaJieTang
- * @since 2022-08-11
+ * @since 2022-08-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class Hospital implements Serializable {
+public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.AUTO)
     private Integer id;
-    /**
-     * 医院名称
-     */
-    private String hName;
 
     /**
-     * 地址
+     * 注册时间
      */
-    private String address;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date registerDate;
 
     /**
-     * 医院联系电话
+     * 会员到期时间
      */
-    private Integer hTel;
-
-    /**
-     * 医院信息
-     */
-    private String information;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date expireDate;
 
 }

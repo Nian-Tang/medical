@@ -19,7 +19,7 @@ package com.medical.entity;
     public class Warehouse implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Integer id;
             /**
             * 医院id
             */
