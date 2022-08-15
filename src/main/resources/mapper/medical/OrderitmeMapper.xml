@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.OrderitmeMapper">
+    <select id="selectOrderItme" resultMap="selectOrderImte">
+        select oi.number, d.*, o.*
+        from ( orderitme oi join drug d on oi.drid = d.id)
+                 join orders o on oi.oid = o.id
 
+    </select>
+
+    <resultMap id="selectOrderImte" type="com.medical.entity.Orderitme">
+        <id column="id" property="id"></id>
+        <result property="number" column="number"></result>
+        <association property="orders" javaType="com.medical.entity.Orders">
+            <result column="order_state" property="orderState"></result>
+            <result column="order_number" property="orderNumber"></result>
+        </association>
+        <association property="drug" javaType="com.medical.entity.Drug">
+            <result column="d_name" property="dName"></result>
+        </association>
+    </resultMap>
 </mapper>
