@@ -15,6 +15,7 @@ package com.medical.entity;
     import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
+
     import lombok.experimental.Accessors;
 
 
@@ -31,7 +32,7 @@ package com.medical.entity;
 @Accessors(chain = true)
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private Long id;
 
 
 
@@ -86,6 +87,7 @@ public class User implements Serializable {
      * 封号状态
      */
     private String uState;
+
 
     private String harvestAddress;
 

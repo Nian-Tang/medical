@@ -19,8 +19,8 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class Admin implements Serializable {
-
     private static final long serialVersionUID = 1L;
+  
     private Integer id;
     /**
      * 账户名
