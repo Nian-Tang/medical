@@ -27,6 +27,8 @@ package com.medical.entity;
     @TableId(type = IdType.AUTO)
     private int id ;
 
+    private Integer id;
+
     private String username;
 
     private String password;

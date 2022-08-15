@@ -6,7 +6,6 @@ package com.medical.entity;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
-
 /**
 * <p>
     * 科室
@@ -16,11 +15,13 @@ package com.medical.entity;
 * @since 2022-08-11
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
+    @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
     public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private Integer id;
 
             /**
             * 科室名称
@@ -37,6 +38,4 @@ package com.medical.entity;
             * 医院外键
             */
     private Integer hid;
-
-
 }
