@@ -23,7 +23,7 @@ import java.util.List;
 public class TimInoculationController {
     @Autowired
     TimInoculationMapper timInoculationMapper;
-    //我预约的疫苗
+    //我预约的疫苗 lyb
     @GetMapping("/selectTiminoculation")
     public TimInoculation byid(@RequestParam User user){
         return timInoculationMapper.selectTimInoculation(user.getId());

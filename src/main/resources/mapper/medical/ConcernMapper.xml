@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConcernMapper">
-    <!--我关注的人-->
+    <!--我关注的人 lyb-->
     <select id="concerns" resultType="com.medical.entity.User">
         select *from concern a join user b on a.uiid=b.id where a.uid = #{User.id}
     </select>
-    <!--我关注的文章-->
+    <!--我关注的文章 lyb-->
     <select id="concernessay" resultType="com.medical.entity.Munity">
         select * from concern a, user b,munity c where a.uid =#{User.id} AND a.mid = c.id GROUP BY subtitle;
     </select>
