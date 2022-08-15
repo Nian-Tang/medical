@@ -51,4 +51,10 @@ public class UserController {
         userServiceImpl.getUsername(username);
         return Result.success("成功获取用户名！");
     }
+
+
+    @GetMapping("/getUserId")
+    public Object getUserId(@RequestParam Integer id){
+        return userServiceImpl.getUserId(id);
+    }
 }

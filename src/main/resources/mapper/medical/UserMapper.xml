@@ -9,7 +9,7 @@
         select id,username,password,name,brithday,age,sex,tel,idcard,enroll_date,doid,u_state,vip_id from user where username = #{username};
     </select>
 
-    <insert id="addConcern">
-        insert into concern(uid,uiid) values (#{uid},#uiid);
-    </insert>
+    <select id="getUserId" resultType="User">
+        select * from user where id = #{id};
+    </select>
 </mapper>

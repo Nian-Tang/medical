@@ -68,4 +68,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getUsername(String username) {
         return userMapper.getUsername(username);
     }
+
+    /**
+     * 根据id查询用户信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public User getUserId(int id) {
+        return userMapper.getUserId(id);
+    }
 }

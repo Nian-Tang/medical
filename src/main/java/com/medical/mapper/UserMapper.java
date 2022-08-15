@@ -12,8 +12,8 @@ import java.util.List;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author JiaJieTang
- * @since 2022-08-11
+ * @author GonghHaiBo
+ * @since 2022-08-12
  */
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
@@ -34,5 +34,11 @@ public interface UserMapper extends BaseMapper<User> {
      */
     User getUsername(@Param("username") String username);
 
+    /**
+     * 根据id查询用户信息
+     * @param id
+     * @return
+     */
+    User getUserId(@Param("id") int id);
 }
 

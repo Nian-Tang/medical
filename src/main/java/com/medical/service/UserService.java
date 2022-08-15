@@ -28,4 +28,11 @@ public interface UserService extends IService<User> {
      */
     User getUsername(@Param("username") String username);
 
+    /**
+     * 根据id查询用户信息
+     * @param id
+     * @return
+     */
+    User getUserId(@Param("id") int id);
+
 }
