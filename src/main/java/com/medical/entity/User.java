@@ -3,6 +3,8 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -64,7 +66,7 @@ package com.medical.entity;
             /**
             * 医生外键
             */
-    private Integer doid;
+            private Integer doid;
 
             /**
             * 封号状态
@@ -74,4 +76,7 @@ package com.medical.entity;
              * 用户收货地址
              */
     private  String harvestAddress;
+
+    @TableField(exist = false)
+    private Doctor doctor;
 }

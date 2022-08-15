@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
+import com.medical.service.impl.UserServiceImpl;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -40,7 +41,6 @@ import javax.management.Query;
 @RequestMapping("/medical/user")
 public class UserController {
     @Autowired
-
     UserService userService;
     @Autowired
     UserMapper userMapper;
@@ -105,20 +105,33 @@ public class UserController {
 
 /**
      * 查询用户收货地址
-     * @param user
      * @return
      */
 
     @GetMapping("/useraddress")
-    public Object listUserAddress(@RequestBody User user){
-        System.out.println(user);
+    public Object listUserAddress(HttpSession session){
+//        System.out.println(user);
+        User user = (User)session.getAttribute("user");
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username",user.getUsername());
         List<User> user1 =  userService.list(wrapper);
-        System.out.println(user1);
+//        System.out.println(user1);
+//        List<User> users= userService.getUser(user);
         return user1.get(0).getHarvestAddress();
+//        return users;
     }
-
+    /**
+     * 查询医生信息
+     * @param user
+     * LIMU
+     * @return
+     */
+    @GetMapping("/userdoctor")
+    public Object listDoctor(@RequestBody User user){
+        System.out.println(user);
+        List<User> users = userService.getdoctor(user);
+        return users;
+    }
 
 
 }
