@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConsultingMapper">
+    <select id="selectConsulting" resultMap="selectConsulting">
+        select *from (consulting c join user u on c.u_id=u.id) join doctor d on c.doid=d.id where u.id=#{uid}
+    </select>
+
+    <resultMap id="selectConsulting" type="com.medical.entity.Consulting">
+        <id property="id" column="id"></id>
+        <result property="createDate" column="create_date"></result>
+        <result property="describe" column="describe"></result>
+        <result property="cState" column="c_state"></result>
+        <result property="describle" column="describle"></result>
+        <result property="uId" column="u_id"></result>
+        <result property="doid" column="doid"></result>
+
+        <association property="user" javaType="com.medical.entity.User">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="username" property="username"></result>
+            <result column="password" property="password"></result>
+            <result column="brithday" property="brithday"></result>
+            <result column="age" property="age"></result>
+            <result column="sex" property="sex"></result>
+            <result column="tel" property="tel"></result>
+            <result property="doid" column="doid"></result>
+            <result column="idcard" property="idcard"></result>
+            <result column="enroll_date" property="enrollDate"></result>
+            <result column="u_state" property="uState"></result>
+            <result column="harvest_address" property="harvestAddress"></result>
+        </association>
+
+        <collection property="doctor" javaType="com.medical.entity.Doctor">
+            <id property="id" column="id"></id>
+            <result column="entry_date" property="entryDate"></result>
+            <result column="title" property="title"></result>
+            <result column="brief" property="brief"></result>
+            <result column="point" property="point"></result>
+            <result column="did" property="did"></result>
+            <result column="hid" property="hid"></result>
+            <result column="hours_practice" property="hoursPractice"></result>
+            <result column="excel" property="excel"></result>
+            <result column="consult_price" property="consultPrice"></result>
+        </collection>
+    </resultMap>
+
+
+
+
+
 
 </mapper>

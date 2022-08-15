@@ -17,11 +17,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MunityServiceImpl extends ServiceImpl<MunityMapper, Munity> implements MunityService {
-    @Autowired
 
-    MunityMapper munityMapper;
-    @Override
-    public Munity selectUserJoinMunityssss() {
-        return munityMapper.selectUserJoinMunity();
-    }
 }
