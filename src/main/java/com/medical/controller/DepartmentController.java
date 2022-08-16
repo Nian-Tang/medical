@@ -53,10 +53,10 @@ public class DepartmentController {
      * @return
      */
     @GetMapping("/getAllDepartment")
-    public List<Department> getAllDepartment(){
-        QueryWrapper queryWrapper = new QueryWrapper();
-        List<Department> departments = departmentMapper.selectList(queryWrapper);
-        return departments;
+    public Page<Department> getAllDepartment(@RequestParam(value = "start",defaultValue = "1") Integer start,
+                                             @RequestParam(value = "size",defaultValue = "5") Integer size){
+        Page<Department> departmentPage = departmentMapper.selectPage(new Page<>(start,size),null);
+        return departmentPage;
     }
 
 }
