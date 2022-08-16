@@ -2,6 +2,10 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.Date;
+
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,17 +25,22 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    private Integer id=0;
 
             /**
             * 注册时间
             */
-    private LocalDateTime registerDate;
+
+    private Date registerDate;
 
             /**
             * 会员到期时间
             */
-    private LocalDateTime expireDate;
 
+    private Date expireDate;
 
+    /**
+     * 用户外键
+     */
+    private Integer uid;
 }
