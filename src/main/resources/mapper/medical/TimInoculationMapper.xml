@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.TimInoculationMapper">
-
+    <select id="selectTimInoculation" resultMap="timInoculation">
+    select *from tim_inoculation a JOIN vaccine b JOIN hospital c ON a.vid = b.id
+WHERE  a.hid = c.id AND a.uid = #{User.id};
+</select>
+    <resultMap id="timInoculation" type="timInoculation">
+        <id property="id" column="id"></id>
+        <result property="time" column="time"></result>
+        <result property="uid" column="uid"></result>
+        <association property="vaccine" column="vid" javaType="vaccine">
+            <id property="id" column="id"></id>
+            <result property="vname" column="vname"/>
+            <result property="vaccineType" column="vaccine_type"/>
+            <result property="vaccineDate" column="vaccine_date"/>
+            <result property="preautions" column="preautions"/>
+            <result property="number" column="number"/>
+            <result property="wid" column="wid"/>
+            <result property="amLnoculationDate" column="am_lnoculation_date"/>
+            <result property="amOverDate" column="am_over_date"/>
+            <result property="pmLnoculationDate" column="pm_lnoculation_date"/>
+            <result property="pmOverDate" column="pm_over_date"/>
+        </association>
+        <association property="hospital" column="hid" javaType="hospital">
+            <id property="id" column="id"/>
+            <result property="hName" column="h_name"/>
+            <result property="address" column="address"/>
+            <result property="hTel" column="h_tel"/>
+            <result property="information" column="information"/>
+        </association>
+    </resultMap>
 </mapper>
