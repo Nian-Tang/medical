@@ -82,10 +82,16 @@ public class UserController {
      * JiaJieTang
      */
     @PostMapping("updatePassword")
-    public Boolean updatePassword(@RequestBody User user){
-        System.out.println(user);
-        boolean save = userService.updateById(user);
-        return save;
+    public Boolean updatePassword(@RequestBody User user,@RequestParam("newPassword") String newPassword){
+        QueryWrapper<User> uWrapper = new QueryWrapper<>();
+        uWrapper.eq("username",user.getUsername()).eq("password",user.getPassword());
+        User one = userService.getOne(uWrapper);
+        if(one!=null){
+            one.setPassword(newPassword);
+            userService.updateById(one);
+            return true;
+        }
+        return false;
     }
 
     /**
