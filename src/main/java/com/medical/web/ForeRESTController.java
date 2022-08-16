@@ -70,7 +70,7 @@ public class ForeRESTController {
         Map<String, Object> map = new HashMap<>();
         map.put("code", "200");
         map.put("msg", "查询成功！");
-        map.put("date", consultings);
+        map.put("data", consultings);
         return map;
     }
 
