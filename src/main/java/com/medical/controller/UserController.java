@@ -1,15 +1,16 @@
 package com.medical.controller;
 
-
-
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
 import com.medical.service.impl.UserServiceImpl;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -87,13 +88,12 @@ public class UserController {
         return save;
     }
 
-
     /**
      * 修改收货地址
      * @param user
      * @return
      */
-    @GetMapping("/user")
+    @PutMapping("/user")
     public Boolean userUpdate(@RequestBody User user){
         System.out.println(user);
         UpdateWrapper<User> wrapper =new UpdateWrapper();
@@ -102,24 +102,20 @@ public class UserController {
         return save;
     }
 
-
-/**
+    /**
      * 查询用户收货地址
      * @return
+     * LIMU
      */
-
     @GetMapping("/useraddress")
     public Object listUserAddress(HttpSession session){
-//        System.out.println(user);
         User user = (User)session.getAttribute("user");
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username",user.getUsername());
         List<User> user1 =  userService.list(wrapper);
-//        System.out.println(user1);
-//        List<User> users= userService.getUser(user);
         return user1.get(0).getHarvestAddress();
-//        return users;
     }
+
     /**
      * 查询医生信息
      * @param user
@@ -133,5 +129,19 @@ public class UserController {
         return users;
     }
 
+    /**
+     * 分页查询用户
+     * LIMU
+     * @return
+     */
+    @GetMapping("/listuser")
+    public List<User> listUser(){
+        Page<User> userIPage = new Page<>(1,5);
+        IPage<User> iPage = userMapper.selectPage(userIPage,null);
+        List<User> list = iPage.getRecords();
+        System.out.println("总页数： "+iPage.getPages());
+        System.out.println("总记录数： "+iPage.getTotal());
+        return list;
+    }
 
 }
