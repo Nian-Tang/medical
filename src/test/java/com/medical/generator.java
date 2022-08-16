@@ -54,6 +54,7 @@ public class generator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
+
         dsc.setUrl("jdbc:mysql://127.0.0.1:3306/medical_care?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
@@ -135,4 +136,5 @@ public class generator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
 }

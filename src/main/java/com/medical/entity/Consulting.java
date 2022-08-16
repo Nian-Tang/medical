@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 public class Consulting implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     /**
      * id
      */
@@ -63,6 +64,7 @@ public class Consulting implements Serializable {
     private List<User> users;
 
     private List<Doctor> doctors;
+
 
 
 }
