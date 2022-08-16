@@ -38,5 +38,5 @@ package com.medical.entity;
             */
     private Integer hid;
 
-
+    private Hospital hospital;
 }
