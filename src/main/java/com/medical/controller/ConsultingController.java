@@ -1,9 +1,14 @@
 package com.medical.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.medical.entity.Consulting;
+import com.medical.mapper.ConsultingMapper;
+import com.medical.service.ConsultingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/medical/consulting")
 public class ConsultingController {
+
 
 }

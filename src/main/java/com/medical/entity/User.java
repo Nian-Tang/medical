@@ -18,6 +18,8 @@ package com.medical.entity;
 * @author JiaJieTang
 * @since 2022-08-11
 */
+
+
     @Data
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)

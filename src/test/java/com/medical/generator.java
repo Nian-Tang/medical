@@ -54,11 +54,11 @@ public class generator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.47.128:3306/physician?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8");
+        dsc.setUrl("jdbc:mysql://192.168.47.128:3306/yuyi?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("centos");
-        dsc.setPassword("123456");
+        dsc.setUsername("root");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -135,4 +135,5 @@ public class generator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
 }
