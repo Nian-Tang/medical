@@ -81,9 +81,8 @@ public class ForeRESTController {
         if (user == null)
             return Result.fail("未登录");
         Orders orders = ordersServiceImpl.getById(oid);
-        UpdateWrapper<Orders> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("id", orders.getId()).set("order_state", OrdersService.backPay);
-        ordersServiceImpl.update(updateWrapper);
+        orders.setOrderState(OrdersService.backPay);
+        ordersServiceImpl.saveOrUpdate(orders);
         return Result.success("退款成功");
     }
 }
