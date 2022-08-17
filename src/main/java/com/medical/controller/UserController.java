@@ -1,33 +1,19 @@
 package com.medical.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
-import com.medical.service.impl.UserServiceImpl;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Response;
 import java.util.HashMap;
 import java.util.List;
-//import cn.org.atool.fluent.mybatis.base.crud.IQuery;
-//import cn.org.atool.fluent.mybatis.base.crud.JoinBuilder;
-//import com.medical.entity.User;
-//import com.medical.service.impl.UserServiceImpl;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-
-import javax.management.Query;
 
 
 /**
@@ -55,6 +41,7 @@ public class UserController {
         List<User> user1 = userMapper.selectByMap(map);
         user1.forEach(System.out::println);
         if (user1.isEmpty()){
+            user.setId(0).setUState("正常");
             userService.save(user);
             return true;
         }else
@@ -68,13 +55,21 @@ public class UserController {
     public Object userLogin(@RequestBody User user,HttpSession session){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username",user.getUsername()).eq("password",user.getPassword());
-        List<User> user1 = userService.list(wrapper);
-        session.setAttribute("user",user1.get(0));
+        User user1 = userMapper.selectOne(wrapper);
+        session.setAttribute("user",user1);
 
-        if (user1.isEmpty()){
+        if (user1==null){
+            System.out.println("未找到该用户！请注册！");
             return false;
-        }else
+        }
+        String uState = user1.getUState();
+        if (uState.equals("正常")){
+            System.out.println("登录成功！");
             return true;
+        }else
+            System.out.println("账号处于异常状态！");
+            return false;
+
     }
 
     /**
@@ -149,5 +144,21 @@ public class UserController {
         System.out.println("总记录数： "+iPage.getTotal());
         return list;
     }
-
+    /**
+     * 用户封号和解封功能
+     * LIMU
+     * @return
+     */
+    @PutMapping("/userState")
+    public Object userState(@RequestParam("id") int id){
+        User user = userMapper.selectById(id);
+        if (user.getUState().equals("正常")){
+            user.setUState("封号");
+            return userService.updateById(user);
+        }else if (user.getUState().equals("封号")){
+            user.setUState("正常");
+            return userService.updateById(user);
+        }
+        return false;
+    }
 }
