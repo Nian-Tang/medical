@@ -66,5 +66,6 @@ package com.medical.entity;
             */
     private Float consultPrice;
 
+    private User users;
 
 }

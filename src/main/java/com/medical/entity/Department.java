@@ -22,6 +22,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 科室名称
             */
@@ -39,4 +41,9 @@ package com.medical.entity;
     private Integer hid;
 
     private Hospital hospital;
+
+    @TableField(exist = false)
+    private Doctor doctors;//多对一  ass
+
+    private Hospital hospitals;
 }

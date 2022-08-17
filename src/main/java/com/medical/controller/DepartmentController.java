@@ -2,12 +2,13 @@ package com.medical.controller;
 
 
 import com.medical.entity.Department;
+import com.medical.entity.Doctor;
+import com.medical.mapper.DepartmentMapper;
+import com.medical.mapper.DoctorMapper;
+import com.medical.mapper.VaccineMapper;
 import com.medical.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +28,12 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    DepartmentMapper departmentMapper;
+    @Autowired
+    DoctorMapper doctorMapper;
+    @Autowired
+    VaccineMapper vaccineMapper;
 
     /**
      * 科室查询 李豪
@@ -54,4 +61,17 @@ public class DepartmentController {
         return map;
     }
 
+    /**
+     * 查询医生 返回结果 有用户信息 医生信息 医生后的医院信息
+     * @param department
+     * @return
+     */
+    @GetMapping("/selectDepartment")
+    public Map<String ,Object> selectDepartment(@RequestBody Department department ){
+        List<Doctor> doctors = departmentMapper.selectDoctor(department.getId());
+        Map<String ,Object> map = new HashMap<>();
+        map.put("doctors",doctors);
+        map.put("code","200");
+        return map;
+    }
 }
