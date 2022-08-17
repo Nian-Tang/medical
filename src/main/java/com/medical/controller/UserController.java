@@ -191,4 +191,19 @@ public class UserController {
         map.put("data",orderitmes);
         return map;
     }
+
+    /**
+     * 查询 所有用户集合数 何红涛
+     * @param
+     * @return
+     */
+    @GetMapping("/findAll1")
+    public Map<String,Object> findAll1(User user){
+        int total = userMapper.findAll(user);
+        Map<String,Object> map=new HashMap<>();
+        map.put("code",200);
+        map.put("msg","成功");
+        map.put("quantity",total);
+        return map;
+    }
 }

@@ -52,4 +52,8 @@ insert into user( harvest_address ) values (#{harvestAddress})
     <update id="upuser" parameterType="com.medical.entity.User">
     update user set harvest_address=#{harvestAddress} where id=#{id}
     </update>
+
+    <select id="findAll" resultType="Integer">
+        SELECT count(*) FROM `user`
+    </select>
 </mapper>
