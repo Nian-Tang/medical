@@ -15,11 +15,18 @@ import java.util.List;
  * 用户表 服务实现类
  * </p>
  *
- * @author GongHaiBo
- * @since 2022-08-11
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
+
+    @Autowired
+    UserMapper userMapper;
+
+
+    @Override
+    public User login(User user) {
+        return userMapper.login(user.getUsername(),user.getPassword());
+    }
 
     @Autowired
     UserMapper userMapper;
@@ -95,4 +102,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
 
+    @Override
+    public  List<User> selectByUserName(String userName) {
+        return userMapper.selectByUserName(userName);
+    }
 }

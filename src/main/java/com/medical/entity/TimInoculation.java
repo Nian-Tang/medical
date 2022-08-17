@@ -2,6 +2,10 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +25,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private int id;
             /**
             * 预约时间;
             */
@@ -40,6 +46,10 @@ package com.medical.entity;
             * 医院id
             */
     private Integer hid;
+
+    private List<Vaccine> vaccines;
+    private List<User> users;
+    private List<Hospital> hospitals;
 
 
 }

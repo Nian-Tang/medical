@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.TimInoculationMapper">
+    <resultMap id="TimInoculationMap" type="com.medical.entity.TimInoculation">
+        <id property="id" column="id"></id>
+        <result property="time" column="time"></result>
+        <result property="vid" column="vid"></result>
+        <result property="uid" column="uid"></result>
+        <result property="hid" column="hid"></result>
+        <collection property="vaccines" ofType="com.medical.entity.Vaccine">
+            <id property="id" column="id"></id>
+            <result property="vname" column="vname"></result>
+        </collection>
+        <collection property="users" ofType="com.medical.entity.User">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+        </collection>
+        <collection property="hospitals" ofType="com.medical.entity.Hospital">
+            <id property="id" column="id"></id>
+            <result property="hName" column="h_name"></result>
+        </collection>
+
+    </resultMap>
+    <select id="getTimInoculationById" resultMap="TimInoculationMap" >
+    SELECT t.id,t.vid,t.uid,t.hid,t.time,
+     v.id,v.vname,
+     u.id,u.name,
+     h.id,h.h_name
+     from
+    tim_inoculation AS t
+    INNER JOIN vaccine AS v ON t.vid = v.id
+    INNER JOIN user AS u ON t.uid = u.id
+    INNER JOIN hospital AS  h ON t.hid = h.id
+    </select>
 
 </mapper>

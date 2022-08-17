@@ -2,23 +2,26 @@ package com.medical.entity;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.io.Serializable;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+    import com.fasterxml.jackson.annotation.JsonIgnoreProperties; //hhb
+    import java.time.LocalDate;
+    import java.time.LocalDateTime;
+    import java.io.Serializable;
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import lombok.Data;
+    import lombok.EqualsAndHashCode;
+    import lombok.experimental.Accessors;
+
 
 /**
  * <p>
  * 用户表
  * </p>
  *
- * @author GongHaiBo
- * @since 2022-08-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -26,6 +29,11 @@ import lombok.experimental.Accessors;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
+
+    @TableId(value = "id", type = IdType.ASSIGN_ID)  //zdh
+    private int id;
 
     private String username;
 
@@ -76,5 +84,9 @@ public class User implements Serializable {
      */
     private String uState;
 
+
+    private String harvestAddress;
+
+    private Integer vipId;
 
 }

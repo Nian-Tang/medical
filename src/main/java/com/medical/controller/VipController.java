@@ -7,17 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 药品分类 前端控制器
+ *  前端控制器
  * </p>
  *
  * @author JiaJieTang
- * @since 2022-08-11
+ * @since 2022-08-12
  */
 @RestController
-@RequestMapping("/medical/category")
-public class CategoryController {
-
-
-
+@RequestMapping("/medical/vip")
+public class VipController {
 
 }

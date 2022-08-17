@@ -4,6 +4,8 @@ import com.medical.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -12,14 +14,15 @@ import java.util.List;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author GonghHaiBo
- * @since 2022-08-12
+ * @author OuYangGenChuan
+ * @since 2022-08-14
  */
+
+
+
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
-
-
-    /**
+/**
      * 根究用户名修改密码
      * @param username
      * @param password
@@ -48,5 +51,10 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     List<User> getAllMyConcernDoctor(@Param("uid") int uid);
+
+    @Select("select * from user where username = #{userName}")
+    List<User> selectByUserName(String userName);
+    User login(@Param("username") String username, @Param("password") String password);
+
 }
 
