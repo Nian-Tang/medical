@@ -1,6 +1,8 @@
 package com.medical.entity;
 
     import java.io.Serializable;
+    import java.util.List;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -10,7 +12,7 @@ package com.medical.entity;
     * 关注
     * </p>
 *
-* @author JiaJieTang
+* @author GongHaiBo
 * @since 2022-08-11
 */
     @Data
@@ -19,7 +21,7 @@ package com.medical.entity;
     public class Concern implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private int id;
             /**
             * 用户id
             */
@@ -31,4 +33,5 @@ package com.medical.entity;
     private Integer uiid;
 
 
+//    private List<User> users;
 }
