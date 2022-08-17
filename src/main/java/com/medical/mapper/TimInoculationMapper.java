@@ -2,6 +2,10 @@ package com.medical.mapper;
 
 import com.medical.entity.TimInoculation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.medical.entity.Vaccine;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,4 +18,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
 
     TimInoculation selectTimInoculation(Integer id);
+
+    Vaccine byVaccineName(String name);
+
+    List<TimInoculation> whetherVaccine(Integer id);
+
+    int addTimInoculation(@Param("timInoculation") TimInoculation timInoculation);
+
+    TimInoculation byId(String hName);
 }

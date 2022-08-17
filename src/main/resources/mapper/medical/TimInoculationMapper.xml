@@ -30,4 +30,44 @@ WHERE  a.hid = c.id AND a.uid = #{User.id};
             <result property="information" column="information"/>
         </association>
     </resultMap>
+
+    <resultMap id="addtim" type="com.medical.entity.TimInoculation">
+        <collection property="user" ofType="com.medical.entity.User"></collection>
+        <collection property="vaccine" ofType="com.medical.entity.Vaccine">
+            <id property="id" column="id"/>
+            <result property="vaccineType" column="vaccine_type"/>
+            <result property="vaccineDate" column="vaccine_Date"/>
+            <result property="amLnoculationDate" column="am_lnoculation_date"/>
+            <result property="amOverDate" column="am_over_date"/>
+            <result property="pmLnoculationDate" column="pm_lnoculation_date"/>
+            <result property="pmOverDate" column="pm_over_date"/>
+        </collection>
+        <collection property="hospital" ofType="com.medical.entity.Hospital">
+            <id property="id" column="id"/>
+            <result property="hName" column="h_name"/>
+            <result property="hTel" column="h_tel"/>
+        </collection>
+    </resultMap>
+
+
+    <!--    添加预约-->
+    <insert id="addTimInoculation" parameterType="com.medical.entity.TimInoculation">
+           INSERT into tim_inoculation(time,vid,uid,hid) values(#{timInoculation.time},#{timInoculation.vid},#{timInoculation.uid},#{timInoculation.hid})
+    </insert>
+    <!--    查询医院id-->
+    <select id="byId" resultMap="addtim">
+        select hospital.id from hospital where hospital.h_name=#{hName}
+    </select>
+
+    <!--  用于查询之前预约疫苗的时间-->
+    <select id="whetherVaccine" resultType="com.medical.entity.TimInoculation">
+            SELECT user.*,tim_inoculation.*,vaccine.* FROM user, tim_inoculation, vaccine
+            WHERE
+            tim_inoculation.uid=user.id and tim_inoculation.vid=vaccine.id and user.id=#{id}
+    </select>
+
+    <!--  用于查询库存  -->
+    <select id="byVaccineName" resultType="com.medical.entity.Vaccine">
+        select vaccine.* from vaccine where vaccine.vname=#{name}
+    </select>
 </mapper>
