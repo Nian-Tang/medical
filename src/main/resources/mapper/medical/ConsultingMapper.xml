@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConsultingMapper">
-    <select id="selectUserJoinConsultingMapper" resultMap="consulting">
+    <select id="selectUserJoinConsulting" resultMap="consulting">
         SELECT * FROM consulting AS c INNER JOIN user AS u ON c.u_id=u.id INNER JOIN doctor AS d  ON c.doid=d.id where u.id = #{uid};
     </select>
 
