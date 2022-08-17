@@ -42,4 +42,10 @@ public class TimInoculationServiceImpl extends ServiceImpl<TimInoculationMapper,
     public TimInoculation byId(String hName) {
         return timInoculationMapper.byId(hName);
     }
+
+    @Override
+    public List<TimInoculation> gettim(int id) {
+        return  timInoculationMapper.gettim(id);
+    }
+
 }

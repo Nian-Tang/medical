@@ -22,4 +22,6 @@ public interface TimInoculationService extends IService<TimInoculation> {
     boolean addTimInoculation(TimInoculation timInoculation);
 
     TimInoculation byId(String hName);
+
+    List<TimInoculation> gettim(int id);
 }

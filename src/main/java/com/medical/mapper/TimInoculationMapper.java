@@ -26,4 +26,6 @@ public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
     int addTimInoculation(@Param("timInoculation") TimInoculation timInoculation);
 
     TimInoculation byId(String hName);
+
+    List<TimInoculation> gettim(int id);
 }

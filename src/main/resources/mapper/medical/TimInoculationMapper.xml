@@ -70,4 +70,33 @@ WHERE  a.hid = c.id AND a.uid = #{User.id};
     <select id="byVaccineName" resultType="com.medical.entity.Vaccine">
         select vaccine.* from vaccine where vaccine.vname=#{name}
     </select>
+
+    <select id="gettim" resultMap="TimInoculation">
+        select t.tim_state,v.vname,u.name, h.h_name from hospital h, tim_inoculation t ,vaccine v ,user u where t.id=h.id AND t.id=u.id AND t.id=v.id AND v.id=#{id}
+    </select>
+    <resultMap id="TimInoculation" type="com.medical.entity.TimInoculation">
+        <id property="id" column="id"/>
+        <result property="time" column="time"/>
+        <result property="vid" column="vid"/>
+        <result property="uid" column="uid"/>
+        <result property="hid" column="hid"/>
+        <result property="timState" column="tim_state"/>
+        <collection property="user" ofType="com.medical.entity.User">
+            <id property="id" column="id"/>
+            <result property="enrollDate" column="enroll_date"/>
+            <result property="uState" column="u_state"/>
+            <result property="name" column="name"/>
+        </collection>
+
+
+        <collection property="vaccine" ofType="com.medical.entity.Vaccine">
+            <id property="id" column="id"/>
+            <result property="vname" column="vname"/>
+        </collection>
+
+        <collection property="hospital" ofType="com.medical.entity.Hospital">
+            <id property="id" column="id"/>
+            <result property="hName" column="h_name"/>
+        </collection>
+    </resultMap>
 </mapper>

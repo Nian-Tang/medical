@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -31,6 +33,7 @@ public class TimInoculationController {
     TimInoculationService timInoculationService;
     @Autowired
     VaccineService vaccineService;
+
 
     /**
      * 查询我预约的疫苗 李沅斌
@@ -73,4 +76,18 @@ public class TimInoculationController {
         else return -1;
     }
 
+    /**
+     * 查询用户疫苗接种情况 李豪
+     * @param id
+     * @return
+     */
+    @GetMapping("/gettim")
+    public Map<String,Object> get(int id){
+        List<TimInoculation> getTimInoculation= timInoculationService.gettim(id);
+        Map<String,Object> map=new HashMap<>();
+        map.put("code","200");
+        map.put("msg","查询成功");
+        map.put("data",getTimInoculation);
+        return map;
+    }
 }
