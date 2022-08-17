@@ -5,6 +5,7 @@
         SELECT * FROM consulting AS c INNER JOIN user AS u ON c.u_id=u.id INNER JOIN doctor AS d  ON c.doid=d.id where u.id = #{uid};
     </select>
 
+
     <resultMap id="consulting" type="com.medical.entity.Consulting">
         <id property="id" column="id"></id>
         <result column="create_date" property="createDate"></result>
@@ -36,3 +37,6 @@
         </collection>
     </resultMap>
 </mapper>
+
+
+

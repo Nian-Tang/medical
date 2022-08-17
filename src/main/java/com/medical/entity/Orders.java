@@ -1,5 +1,6 @@
 package com.medical.entity;
 
+
 import java.io.Serializable;
 
 import com.medical.service.OrdersService;
@@ -21,6 +22,8 @@ import lombok.experimental.Accessors;
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
     private int id;
     private Integer uid;
 
@@ -70,4 +73,5 @@ public class Orders implements Serializable {
     public void setOrderState(String orderState) {
         this.orderState = orderState;
     }
+
 }
