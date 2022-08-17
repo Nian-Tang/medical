@@ -28,4 +28,6 @@ public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
     TimInoculation byId(String hName);
 
     List<TimInoculation> gettim(int id);
+
+    TimInoculation byTimInoculation(Integer id);
 }

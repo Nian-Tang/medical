@@ -49,6 +49,11 @@ WHERE  a.hid = c.id AND a.uid = #{User.id};
         </collection>
     </resultMap>
 
+    <select id="byTimInoculation" resultMap="addtim">
+            SELECT user.name,tim_inoculation.*,vaccine.* FROM user, tim_inoculation, vaccine
+            WHERE
+            tim_inoculation.uid=user.id and tim_inoculation.vid=vaccine.id and tim_inoculation.id=#{id}
+    </select>
 
     <!--    添加预约-->
     <insert id="addTimInoculation" parameterType="com.medical.entity.TimInoculation">
@@ -87,7 +92,6 @@ WHERE  a.hid = c.id AND a.uid = #{User.id};
             <result property="uState" column="u_state"/>
             <result property="name" column="name"/>
         </collection>
-
 
         <collection property="vaccine" ofType="com.medical.entity.Vaccine">
             <id property="id" column="id"/>

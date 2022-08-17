@@ -57,5 +57,12 @@ package com.medical.entity;
 
     private Hospital hospital;
 
+    //支付金额
+    public int money;
+
+    /**
+     * 接种状态
+     */
+    private  String timState;
 
 }

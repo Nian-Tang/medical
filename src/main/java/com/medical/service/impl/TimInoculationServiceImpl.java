@@ -34,8 +34,8 @@ public class TimInoculationServiceImpl extends ServiceImpl<TimInoculationMapper,
     }
 
     @Override
-    public boolean addTimInoculation(TimInoculation timInoculation) {
-        return timInoculationMapper.addTimInoculation(timInoculation)>0;
+    public int addTimInoculation(TimInoculation timInoculation) {
+        return timInoculationMapper.addTimInoculation(timInoculation);
     }
 
     @Override
@@ -46,6 +46,11 @@ public class TimInoculationServiceImpl extends ServiceImpl<TimInoculationMapper,
     @Override
     public List<TimInoculation> gettim(int id) {
         return  timInoculationMapper.gettim(id);
+    }
+
+    @Override
+    public TimInoculation byTimInoculation(Integer id) {
+        return timInoculationMapper.byTimInoculation(id);
     }
 
 }

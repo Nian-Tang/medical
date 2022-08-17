@@ -19,9 +19,11 @@ public interface TimInoculationService extends IService<TimInoculation> {
 
     List<TimInoculation> whetherVaccine(Integer id);
 
-    boolean addTimInoculation(TimInoculation timInoculation);
+    int addTimInoculation(TimInoculation timInoculation);
 
     TimInoculation byId(String hName);
 
     List<TimInoculation> gettim(int id);
+
+    TimInoculation byTimInoculation(Integer id);
 }
