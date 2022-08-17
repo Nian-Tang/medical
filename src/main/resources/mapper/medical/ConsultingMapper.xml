@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConsultingMapper">
-
+    <select id="selectDoctorUser" resultMap="selectDoctorUser">
+        SELECT *FROM consulting a JOIN `user` b JOIN doctor c ON a.u_id=b.id
+WHERE a.doid=c.id AND c.id=2;
+    </select>
+    <resultMap id="selectDoctorUser" type="consulting">
+        <id column="id" property="id"/>
+        <result column="create_date" property="createDate"/>
+        <result column="describe" property="describe"/>
+        <result column="" property="cState"/>
+        <result column="" property="describle"/>
+        <association property="user" column="u_id" javaType="user">
+            <result column="name" property="name"/>
+            <result column="age" property="age"/>
+        </association>
+        <association property="doctor" column="doid" javaType="doctor">
+            <id column="id" property="id"/>
+        </association>
+    </resultMap>
 </mapper>

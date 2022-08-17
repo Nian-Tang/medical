@@ -23,6 +23,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 创建时间
             */
@@ -54,9 +56,12 @@ package com.medical.entity;
             */
     private Integer doid;
 
+    private User user;
+
+    private Doctor doctor;
+
     public String getDescribe() {
         return describe;
     }
-
 
 }
