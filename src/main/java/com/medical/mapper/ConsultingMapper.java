@@ -17,5 +17,5 @@ import java.util.List;
  */
 @Mapper
 public interface ConsultingMapper extends BaseMapper<Consulting> {
-    List<Consulting> selectUserJoinConsultingMapper(Integer uid);
+    List<Consulting> selectUserJoinConsulting(Integer uid);
 }

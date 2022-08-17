@@ -23,7 +23,7 @@ public class ConsultingServiceImpl extends ServiceImpl<ConsultingMapper, Consult
     ConsultingMapper consultingMapper;
 
     @Override
-    public List<Consulting> selectUserJoinConsultingMapper(Integer uid) {
-        return consultingMapper.selectUserJoinConsultingMapper(uid);
+    public List<Consulting> selectUserJoinConsulting(Integer uid) {
+        return consultingMapper.selectUserJoinConsulting(uid);
     }
 }

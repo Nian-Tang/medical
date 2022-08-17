@@ -14,6 +14,6 @@ import java.util.List;
  * @since 2022-08-11
  */
 public interface ConsultingService extends IService<Consulting> {
+    List<Consulting> selectUserJoinConsulting(Integer uid);
 
-    List<Consulting> selectUserJoinConsultingMapper(Integer uid);
 }
