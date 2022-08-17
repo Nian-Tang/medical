@@ -1,4 +1,5 @@
 package com.medical.entity;
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.List;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,6 +14,7 @@ import lombok.experimental.Accessors;
  * 科室
  * </p>
  *
+
  * @author JiaJieTang
  * @since 2022-08-11
  */
@@ -22,6 +24,9 @@ import lombok.experimental.Accessors;
 public class Department implements Serializable {
 
 
+    /**
+     * 科室名称
+     */
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Integer id;
             /**
