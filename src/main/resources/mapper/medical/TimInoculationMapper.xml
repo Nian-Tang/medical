@@ -68,7 +68,7 @@ WHERE  a.hid = c.id AND a.uid = #{User.id};
     <select id="whetherVaccine" resultType="com.medical.entity.TimInoculation">
             SELECT user.*,tim_inoculation.*,vaccine.* FROM user, tim_inoculation, vaccine
             WHERE
-            tim_inoculation.uid=user.id and tim_inoculation.vid=vaccine.id and user.id=#{id}
+            tim_inoculation.uid=user.id and tim_inoculation.vid=vaccine.id and user.id=#{id} and vaccine.name=#{name}
     </select>
 
     <!--  用于查询库存  -->

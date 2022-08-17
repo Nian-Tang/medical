@@ -29,8 +29,8 @@ public class TimInoculationServiceImpl extends ServiceImpl<TimInoculationMapper,
     }
 
     @Override
-    public List<TimInoculation> whetherVaccine(Integer id) {
-        return timInoculationMapper.whetherVaccine(id);
+    public List<TimInoculation> whetherVaccine(Integer id,String name) {
+        return timInoculationMapper.whetherVaccine(id,name);
     }
 
     @Override

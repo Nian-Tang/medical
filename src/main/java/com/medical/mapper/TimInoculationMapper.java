@@ -21,7 +21,7 @@ public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
 
     Vaccine byVaccineName(String name);
 
-    List<TimInoculation> whetherVaccine(Integer id);
+    List<TimInoculation> whetherVaccine(Integer id,String name);
 
     int addTimInoculation(@Param("timInoculation") TimInoculation timInoculation);
 

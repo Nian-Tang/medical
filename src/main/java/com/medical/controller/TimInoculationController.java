@@ -69,7 +69,7 @@ public class TimInoculationController {
         if (timInoculation.getMoney()==0)return "请先支付";
         timInoculation.setTime(LocalDateTime.now());
         //查询历史接种时间
-        List<TimInoculation> timInoculations=timInoculationService.whetherVaccine(uid);
+        List<TimInoculation> timInoculations=timInoculationService.whetherVaccine(uid,timInoculation.getName());
         if (!timInoculations.isEmpty()){
             Duration time= Duration.between(timInoculations.get(timInoculations.size()-1).getTime(),LocalDateTime.now());
             long day= time.toDays();

@@ -17,7 +17,7 @@ import java.util.List;
 public interface TimInoculationService extends IService<TimInoculation> {
     Vaccine byVaccineName(String name);
 
-    List<TimInoculation> whetherVaccine(Integer id);
+    List<TimInoculation> whetherVaccine(Integer id,String name);
 
     int addTimInoculation(TimInoculation timInoculation);
 
