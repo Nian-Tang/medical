@@ -2,6 +2,8 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -20,10 +22,11 @@ package com.medical.entity;
     public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private int id;
             /**
             * 医生录入时间
             */
+            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private LocalDateTime entryDate;
 
             /**
@@ -44,12 +47,12 @@ package com.medical.entity;
             /**
             * 科室编号
             */
-    private Integer did;
+    private Department department;
 
             /**
             * 医院id
             */
-    private Integer hid;
+    private Hospital hospital;
 
             /**
             * 医龄

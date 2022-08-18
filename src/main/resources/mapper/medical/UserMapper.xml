@@ -2,4 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.UserMapper">
 
+
+    <update id="userUpdate" parameterType="User">
+        update user set password=#{password} where tel=#{tel};
+    </update>
+
+
+    <select id="loginUser" resultType="user">
+        select * from user where username = #{username} and password = #{password};
+    </select>
 </mapper>

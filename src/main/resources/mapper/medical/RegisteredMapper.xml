@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.RegisteredMapper">
-
+    <select id="getReg" resultMap="RegMap">
+        SELECT r.id,u.id,u.username,r.appointment,r.reservation_no
+        from `user` u,hospital h,registered r,department d
+        where r.uid = u.id and r.hid = h.id and r.did = d.id
+        and r.uid = #{uid}
+    </select>
+    <resultMap id="RegMap" type="registered">
+        <id property="id" column="id"></id>
+        <result property="appointment" column="appointment"></result>
+        <result property="reservationNo" column="reservation_no"></result>
+        <association property="user" column="uid" javaType="user">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+        </association>
+        <association property="hospital" column="hid" javaType="hospital"></association>
+        <association property="department" column="did" javaType="department"></association>
+    </resultMap>
 </mapper>

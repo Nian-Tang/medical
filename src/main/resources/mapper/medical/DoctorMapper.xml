@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.DoctorMapper">
+    <select id="likeDoAndDH" resultMap="likeMap">
+        SELECT do.id,do.entry_date 医生录入时间,do.title 职称,do.brief 简介,do.point 评分,
 
+        do.hours_practice 医龄,do.excel 擅长,do.consult_price 问诊价格,
+
+        d.d_name 所属科室,d.Entry_date 科室录入时间,
+
+        h.h_name 所属医院,h.address 地址,h.h_tel 医院号码,h.information 医院信息
+
+        FROM doctor do,department d,hospital h
+
+        WHERE do.did = d.id and d.hid = h.id
+    </select>
+    <resultMap id="likeMap" type="doctor">
+        <id property="id" column="id"></id>
+        <result property="entryDate" column="医生录入时间"></result>
+        <result property="title" column="职称"></result>
+        <result property="brief" column="简介"></result>
+        <result property="point" column="评分"></result>
+        <result property="hoursPractice" column="医龄"></result>
+        <result property="excel" column="擅长"></result>
+        <result property="consultPrice" column="问诊价格"></result>
+        <association property="department" column="did" javaType="department">
+            <id property="id" column="id"></id>
+            <result property="dName" column="所属科室"></result>
+            <result property="entryDate" column="科室录入时间"></result>
+        </association>
+        <association property="hospital" column="hid" javaType="hospital">
+            <id property="id" column="id"></id>
+            <result property="hName" column="所属医院"></result>
+            <result property="address" column="地址"></result>
+            <result property="hTel" column="医院号码"></result>
+            <result property="information" column="医院信息"></result>
+        </association>
+    </resultMap>
 </mapper>

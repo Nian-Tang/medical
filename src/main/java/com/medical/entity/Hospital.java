@@ -19,6 +19,7 @@ package com.medical.entity;
     public class Hospital implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private int id;
 
             /**
             * 医院名称

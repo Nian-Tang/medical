@@ -2,6 +2,10 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -15,30 +19,31 @@ package com.medical.entity;
 * @since 2022-08-11
 */
     @Data
-        @EqualsAndHashCode(callSuper = false)
-    @Accessors(chain = true)
+
     public class Registered implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    @TableId(type = IdType.AUTO)
+    private int id;
 
             /**
             * 用户id
             */
-    private Integer uid;
+    private User user;
 
             /**
             * 医院id
             */
-    private Integer hid;
+    private Hospital hospital;
 
             /**
             * 科室id
             */
-    private Integer did;
+    private Department department;
 
             /**
             * 预约时间
             */
+            @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private LocalDateTime appointment;
 
             /**

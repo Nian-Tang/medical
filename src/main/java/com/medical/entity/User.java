@@ -3,9 +3,14 @@ package com.medical.entity;
     import java.time.LocalDate;
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
+
 
 /**
 * <p>
@@ -16,11 +21,15 @@ package com.medical.entity;
 * @since 2022-08-11
 */
     @Data
+
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
+
     public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    @TableId(type = IdType.AUTO)
+    private int id;
+
 
     private String username;
 
@@ -34,6 +43,7 @@ package com.medical.entity;
             /**
             * 出生日期
             */
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GTM+8")
     private LocalDate brithday;
 
             /**
@@ -59,6 +69,7 @@ package com.medical.entity;
             /**
             * 注册时间
             */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private LocalDateTime enrollDate;
 
             /**
@@ -71,5 +82,5 @@ package com.medical.entity;
             */
     private String uState;
 
-
+    private int vipId;
 }
