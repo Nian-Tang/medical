@@ -9,8 +9,9 @@ spring:
     name: lab-user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.47.128:3306/physician?charset=utf8
-    username: centos
+
+    url: jdbc:mysql://localhost:3306/yuyi?useUnicode=true&characterEncoding=utf-8
+    username: root
     password: 123456
 mybatis-plus:
   type-aliases-package: com.medical.entity
@@ -21,7 +22,7 @@ mybatis-plus:
 eureka:
   client:
     service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
-      defaultZone: http://127.0.0.1:8088/eureka
+      defaultZone: http://127.0.0.1:8080/eureka
     register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true
     fetch-registry: false # 是否拉取其它服务的信息，默认是true
   server:

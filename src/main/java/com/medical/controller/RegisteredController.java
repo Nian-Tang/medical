@@ -1,6 +1,9 @@
 package com.medical.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.medical.mapper.RegisteredMapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import com.alibaba.fastjson.JSON;
 import com.medical.entity.Registered;
 import com.medical.entity.User;
@@ -9,6 +12,7 @@ import com.medical.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.spring.web.json.Json;
 
@@ -41,5 +45,15 @@ public class RegisteredController {
     }
 
 
+
+    @Autowired
+    RegisteredMapper registeredMapper;
+
+    @GetMapping("/registereds")
+    public Page<Registered> registered(@RequestParam(value = "start",defaultValue = "1") int start,
+                                       @RequestParam(value = "size" ,defaultValue = "10") int size){
+        Page<Registered> registeredPage = registeredMapper.selectPage(new Page<>(start,size),null);
+        return registeredPage;
+    }
 
 }
