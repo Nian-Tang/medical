@@ -4,7 +4,10 @@ import com.medical.entity.Orderitme;
 import com.medical.mapper.OrderitmeMapper;
 import com.medical.service.OrderitmeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +19,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderitmeServiceImpl extends ServiceImpl<OrderitmeMapper, Orderitme> implements OrderitmeService {
+@Autowired
+OrderitmeMapper orderitmeMapper;
+    @Override
+    public List<Orderitme> selectOrderItme() {
+        return orderitmeMapper.selectOrderItme();
+    }
+
+    @Override
+    public List<Orderitme> select(int uid) {
+        return  orderitmeMapper.select(uid);
+    }
 
 }

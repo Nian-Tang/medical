@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.OrderitmeMapper">
+    <select id="selectOrderItme" resultMap="selectOrderImte">
+        select oi.number, d.*, o.*
+        from ( orderitme oi join drug d on oi.drid = d.id)
+                 join orders o on oi.oid = o.id
 
+    </select>
+
+    <resultMap id="selectOrderImte" type="com.medical.entity.Orderitme">
+<!--        <id column="id" property="id"></id>-->
+        <result property="number" column="number"></result>
+        <association property="orders" javaType="com.medical.entity.Orders">
+            <result column="order_state" property="orderState"></result>
+            <result column="order_number" property="orderNumber"></result>
+            <result column="order_datetime" property="orderDatetime"></result>
+
+        </association>
+        <association property="drug" javaType="com.medical.entity.Drug">
+            <result column="d_name" property="dName"></result>
+            <result column="describe" property="describe"></result>
+            <result column="function" property="function"></result>
+            <result column="specification" property="specification"></result>
+            <result column="character" property="character"></result>
+            <result column="usage" property="usage"></result>
+            <result column="ingredient" property="ingredient"></result>
+            <result column="taboo" property="taboo"></result>
+            <result column="price" property="price"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="select" resultMap="select">
+        select oi.number, d.*, o.*
+        from ( orderitme oi join drug d on oi.drid = d.id)
+                 join (orders o join user u on o.uid = u.id ) on oi.oid = o.id
+        where o.id = #{uid}
+
+    </select>
+
+    <resultMap id="select" type="com.medical.entity.Orderitme">
+        <id column="id" property="id"></id>
+        <result property="number" column="number"></result>
+        <association property="orders" javaType="com.medical.entity.Orders">
+            <result column="order_state" property="orderState"></result>
+            <result column="order_number" property="orderNumber"></result>
+            <result column="order_datetime" property="orderDatetime"></result>
+
+        </association>
+        <association property="drug" javaType="com.medical.entity.Drug">
+            <result column="d_name" property="dName"></result>
+            <result column="describe" property="describe"></result>
+            <result column="function" property="function"></result>
+            <result column="specification" property="specification"></result>
+            <result column="character" property="character"></result>
+            <result column="usage" property="usage"></result>
+            <result column="ingredient" property="ingredient"></result>
+            <result column="taboo" property="taboo"></result>
+            <result column="price" property="price"></result>
+        </association>
+    </resultMap>
 </mapper>
