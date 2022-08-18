@@ -22,7 +22,13 @@ public class OrderitmeServiceImpl extends ServiceImpl<OrderitmeMapper, Orderitme
 @Autowired
 OrderitmeMapper orderitmeMapper;
     @Override
-    public List<Orderitme> selectOrderItme(int oid) {
-        return orderitmeMapper.selectOrderItme(oid);
+    public List<Orderitme> selectOrderItme() {
+        return orderitmeMapper.selectOrderItme();
     }
+
+    @Override
+    public List<Orderitme> select(int uid) {
+        return  orderitmeMapper.select(uid);
+    }
+
 }

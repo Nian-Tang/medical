@@ -16,4 +16,6 @@ import java.util.List;
 public interface OrdersService extends IService<Orders> {
     List<Orders> selectOrders(int uid);
 
+
+    List<Orders> QueryAmountByTimePeriod();
 }

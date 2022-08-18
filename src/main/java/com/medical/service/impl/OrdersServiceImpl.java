@@ -26,4 +26,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     public List<Orders> selectOrders(int uid) {
         return ordersMapper.selectOrders(uid);
     }
+
+    @Override
+    public List<Orders> QueryAmountByTimePeriod() {
+        return ordersMapper.QueryAmountByTimePeriod();
+    }
 }

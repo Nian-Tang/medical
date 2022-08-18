@@ -66,7 +66,7 @@ package com.medical.entity;
             /**
             * 医生外键
             */
-            private Integer doid;
+    private Integer doid;
 
             /**
             * 封号状态

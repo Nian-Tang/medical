@@ -72,5 +72,8 @@ public class Drug implements Serializable {
      */
     private Integer cid;
 
-
+    /**
+     * 价格
+     */
+    private Double price;
 }

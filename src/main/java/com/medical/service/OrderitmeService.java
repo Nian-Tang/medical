@@ -14,5 +14,8 @@ import java.util.List;
  * @since 2022-08-11
  */
 public interface OrderitmeService extends IService<Orderitme> {
-    List<Orderitme> selectOrderItme(int oid);
+    List<Orderitme> selectOrderItme();
+    List<Orderitme> select( int uid);
+
+
 }

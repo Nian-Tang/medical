@@ -18,4 +18,7 @@ import java.util.List;
 @Mapper
 public interface OrdersMapper extends BaseMapper<Orders> {
     List<Orders> selectOrders(@Param("user")int uid);
+    List<Orders> QueryAmountByTimePeriod();
+
+
 }

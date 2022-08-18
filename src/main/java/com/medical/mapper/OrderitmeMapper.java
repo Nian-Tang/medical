@@ -17,5 +17,6 @@ import java.util.List;
  */
 @Mapper
 public interface OrderitmeMapper extends BaseMapper<Orderitme> {
-List<Orderitme> selectOrderItme(@Param("oid") int oid);
+List<Orderitme> selectOrderItme();
+List<Orderitme> select(@Param("uid") int uid);
 }

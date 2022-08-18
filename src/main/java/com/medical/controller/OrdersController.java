@@ -32,7 +32,6 @@ public class OrdersController {
     OrderitmeService orderitmeService;
 
 
-
     /**
      * 杨俊武
      * 查询订单接口
@@ -43,25 +42,76 @@ public class OrdersController {
     public List<Orders> selectOrders(HttpSession session) {
         User user = (User) session.getAttribute("user");
         Integer id = user.getId();
-        List orderitmes=new ArrayList<>();
+        List orderitmes = new ArrayList<>();
         List<Orders> orders = ordersService.selectOrders(id);
         for (Orders order : orders) {
             int orderId = order.getId();
-            int[] i = new int[1024];
-            for (int i1=0 ;i1<i.length; i1++) {
-                if (orderId==i[i1]){
-                    break;
-                }
-                if(i[i1]==0){
-                  orderitmes.add(orderitmeService.selectOrderItme(i[i1]));
-                  i[i1]=orderId;
-                  break;
-                }
-
+            List<Orderitme> select = orderitmeService.select(orderId);
+            for (Orderitme orderitme : select) {
+                orderitmes.add(orderitme);
             }
-
-
         }
         return orderitmes;
     }
+
+    /**
+     *查询不同月份的营业额
+     * @return
+     */
+    @GetMapping("queryAmountByTimePeriod")
+    public double[] queryAmountByTimePeriod() {
+        List<Orderitme> orderitmes = new ArrayList<>();
+        List<Orders> orders = ordersService.QueryAmountByTimePeriod();
+        //j储存的是’年份/月份‘
+        String[] j = new String[1024];
+        for (Orders order : orders) {
+            int month = order.getOrderDatetime().getMonth();
+            int year = order.getOrderDatetime().getYear();
+            for (int j1 = 0; j1 < j.length; j1++) {
+                String ym = year + "/" + month;
+                if (j[j1] == null) {
+                    j[j1] = ym;
+                    break;
+                } else if (j[j1].equals(ym)) {
+                    break;
+                }
+            }
+        }
+        selectOI(orderitmes);
+        int monthlySalesLength = 0;
+        for (int j1 = 0; j1 < j.length; j1++) {
+            if (j[j1] == null) {
+                monthlySalesLength = j1;
+                break;
+            }
+        }
+        //monthlySales 储存的是营业额
+        double monthlySales[] = new double[monthlySalesLength];
+        for (Orderitme orderitme : orderitmes) {
+            int month = orderitme.getOrders().getOrderDatetime().getMonth();
+            int year = orderitme.getOrders().getOrderDatetime().getYear();
+            System.out.println(orderitme);
+            for (int j1 = 0; j1 < j.length & j[j1] != null; j1++) {
+                String s = year + "/" + month;
+                if (s.equals(j[j1])) {
+                    double v = orderitme.getNumber() * orderitme.getDrug().getPrice();
+                    monthlySales[j1] += v;
+                }
+            }
+        }
+
+        return monthlySales;
+    }
+
+
+    private void selectOI(List<Orderitme> orderitmes) {
+        List<Orderitme> orderitmes1 = orderitmeService.selectOrderItme();
+        for (Orderitme orderitme : orderitmes1) {
+            orderitmes.add(orderitme);
+        }
+    }
+
+
+
+
 }
