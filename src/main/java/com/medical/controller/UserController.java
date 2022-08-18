@@ -1,7 +1,8 @@
 package com.medical.controller;
 
 
-
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.medical.mapper.UserMapper;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import com.medical.custom.result.R;
@@ -32,11 +33,44 @@ import java.util.Map;
 @RestController
 @RequestMapping("/medical/user")
 public class UserController {
-    @Autowired 
+    @Autowired
     UserService userService;
     @Autowired
+    UserMapper userMapper;
+    @Autowired
     UserServiceImpl userServiceImpl;
-  
+
+    /**
+     *
+     *收货地址CRUD
+     *
+     * @author zdh
+     * @since 2022-08-11
+     */
+    @PostMapping("/addharvestaddress")
+    public boolean addharvestaddress(){
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id","1").set("harvest_address","雨花区");
+        return userService.update(updateWrapper);
+    }
+
+    @GetMapping("/getharvestaddress")
+    public List<User> getharvestaddress(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("harvest_address").eq("id","1");
+         List<User> users = userMapper.selectList(queryWrapper);
+         return users;
+    }
+
+    @PostMapping("/deleteharvestaddress")
+    public boolean deleteharvestaddress(){
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id","2").set("harvest_address","null");
+        return   userService.update(updateWrapper) ;
+
+    }
+
+    
      /**
      * 登入
      * */
@@ -67,13 +101,6 @@ public class UserController {
             return Result.success("用户已存在");
         }
     }
-
-
-    @Autowired
-    UserServiceImpl userServiceImpl;
-    @Autowired
-    UserService userService;
-
 
     /**
      * 根据用户名修改密码
