@@ -1,10 +1,14 @@
 package com.medical.service.impl;
 
 import com.medical.entity.Orderitme;
+import com.medical.entity.Orders;
 import com.medical.mapper.OrderitmeMapper;
 import com.medical.service.OrderitmeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,7 +18,8 @@ import org.springframework.stereotype.Service;
  * @author JiaJieTang
  * @since 2022-08-11
  */
-@Service
+
 public class OrderitmeServiceImpl extends ServiceImpl<OrderitmeMapper, Orderitme> implements OrderitmeService {
 
 }
+

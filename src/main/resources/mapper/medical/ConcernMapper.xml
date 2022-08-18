@@ -12,4 +12,5 @@
     <delete id="closeConcern" parameterType="Concern">
         delete from concern where uid = #{uid} and uiid = #{uiid};
     </delete>
+
 </mapper>
