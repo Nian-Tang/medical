@@ -27,3 +27,6 @@ eureka:
     fetch-registry: false # 是否拉取其它服务的信息，默认是true
   server:
     eviction-interval-timer-in-ms: 60000 # 扫描失效服务的间隔时间（缺省为60*1000ms
+
+server:
+  port: 9090

@@ -1,5 +1,6 @@
 package com.medical.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.medical.entity.Registered;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.medical.entity.TimInoculation;
@@ -8,6 +9,8 @@ import javax.rmi.CORBA.ClassDesc;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+
+import java.io.Serializable;
 
 /**
  * <p>
