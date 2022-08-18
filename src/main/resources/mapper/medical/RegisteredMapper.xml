@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.medical.mapper.RegisteredMapper">
-<!--    <resultMap id="RegisteredResultMap" type="com.medical.entity.Registered">-->
+<!--    <resultMap id="RegisteredResultMaps" type="com.medical.entity.Registered">-->
 <!--        <id property="id" column="id"></id>-->
 <!--        <result property="uid" column="uid"></result>-->
 <!--        <result property="hid" column="hid"></result>-->
@@ -38,7 +38,7 @@
 <!--            <result property="entryDate" column="Entry_date"></result>-->
 <!--        </collection>-->
 <!--    </resultMap>-->
-<!--    <select id="getRegisteredById" resultMap="RegisteredResultMap">-->
+<!--    <select id="getRegisteredById" resultMap="RegisteredResultMaps">-->
 <!--     SELECT r.id,r.uid,r.hid,r.did,r.appointment,r.appointment,-->
 <!--     u.id,u.username,u.name,u.brithday,u.age,u.sex,-->
 <!--     h.id,h.h_name,h.address,h.h_tel,h.information,-->
@@ -49,6 +49,53 @@
 <!--     INNER JOIN hospital AS h ON r.hid = h.id-->
 <!--     INNER JOIN department AS d ON  r.did = d.id;-->
 <!--    </select>-->
+    <resultMap id="RegisteredResultMap" type="com.medical.entity.Registered">
+        <id property="id" column="id"></id>
+        <result property="uid" column="uid"></result>
+        <result property="hid" column="hid"></result>
+        <result property="did" column="did"></result>
+        <result property="appointment" column="appointment"></result>
+        <result property="reservation_no" column="reservation_no"></result>
+
+        <collection property="users" ofType="com.medical.entity.User">
+            <result property="id" column="id"></result>
+            <result property="username" column="username" ></result>
+            <result property="name" column="name"></result>
+<!--            <result property="password" column="password"></result>-->
+            <result property="brithday" column="brithday"></result>
+            <result property="age" column="age"></result>
+            <result property="sex" column="sex"></result>
+<!--            <result property="tel" column="tel"></result>-->
+<!--            <result property="idcard" column="idcard"></result>-->
+<!--            <result property="doid" column="doid"></result>-->
+<!--            <result property="u_state" column="u_state"></result>-->
+<!--            <result property="vip_id" column="vip_id"></result>-->
+<!--            <result property="enroll_date" column="enroll_date"></result>-->
+        </collection>
+        <collection property="hospitals" ofType="com.medical.entity.Hospital">
+            <result property="id" column="id"></result>
+            <result property="hName" column="h_name"></result>
+            <result property="address" column="address"></result>
+            <result property="hTel" column="h_tel"></result>
+            <result property="information" column="information"></result>
+        </collection>
+        <collection property="departments" ofType="com.medical.entity.Department">
+            <id property="id" column="id"></id>
+            <result property="dName" column="d_name"></result>
+            <result property="entryDate" column="Entry_date"></result>
+        </collection>
+    </resultMap>
+    <select id="getRegisteredById" resultMap="RegisteredResultMap">
+     SELECT r.id,r.uid,r.hid,r.did,r.appointment,r.appointment,
+     u.id,u.username,u.name,u.brithday,u.age,u.sex,
+     h.id,h.h_name,h.address,h.h_tel,h.information,
+     d.id, d.d_name,d.Entry_date
+      from
+     registered AS r
+     INNER JOIN user AS u ON r.uid = u.id
+     INNER JOIN hospital AS h ON r.hid = h.id
+     INNER JOIN department AS d ON  r.did = d.id;
+    </select>
 
 
 
