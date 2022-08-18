@@ -1,6 +1,8 @@
 package com.medical.entity;
 
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -19,7 +21,7 @@ package com.medical.entity;
     public class Orderitme implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private  int id;
             /**
             * 药品id
             */
@@ -40,5 +42,6 @@ package com.medical.entity;
             */
     private Integer oid;
 
-
+    @TableField(exist = false)
+    private Orders orders;
 }
