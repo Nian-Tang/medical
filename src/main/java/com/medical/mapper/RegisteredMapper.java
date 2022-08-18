@@ -1,7 +1,16 @@
 package com.medical.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.medical.entity.Registered;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.medical.entity.TimInoculation;
+
+import javax.rmi.CORBA.ClassDesc;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -12,5 +21,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-08-11
  */
 public interface RegisteredMapper extends BaseMapper<Registered> {
+
+    Registered getRegisteredById(Serializable id);
 
 }

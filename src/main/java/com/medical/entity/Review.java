@@ -20,7 +20,7 @@ package com.medical.entity;
     public class Review implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private int id;
     private Integer uid;
 
     private String review;
