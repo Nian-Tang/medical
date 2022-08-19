@@ -2,15 +2,15 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
-    import java.util.List;
 
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
 
 /**
 * <p>
-    * 评论
+    * 
     * </p>
 *
 * @author JiaJieTang
@@ -19,27 +19,23 @@ package com.medical.entity;
     @Data
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
-    public class Review implements Serializable {
+    public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    private Integer id;
 
-    private Integer uid;
-
-    private String review;
-
-    private LocalDateTime reviewDate;
+    private int id;
+            /**
+            * 注册时间
+            */
+     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime registerDate;
 
             /**
-            * 社区id
+            * 会员到期时间
             */
-    private Integer mid;
+     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime expireDate;
 
-            /**
-            * 药品id
-            */
-    private String drid;
-    private Drug drug;
-    private Munity munity;
+    private User user;
+
 }
