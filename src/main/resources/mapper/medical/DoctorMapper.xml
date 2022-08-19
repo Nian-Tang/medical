@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.DoctorMapper">
 
+    <insert id="adddo" parameterType="com.medical.entity.Doctor">
+<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+    SELECT last_insert_id()
+</selectKey>
+insert into doctor(title,brief) values (#{title},#{brief})
+    </insert>
+
+
 </mapper>

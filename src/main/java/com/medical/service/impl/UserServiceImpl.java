@@ -53,4 +53,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<User> byCases(Integer id) {
         return userMapper.byCases(id);
     }
+
+    @Override
+    public double addid(User user) {
+        return userMapper.addid(user);
+    }
 }

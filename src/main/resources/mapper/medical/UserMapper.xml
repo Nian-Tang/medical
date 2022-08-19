@@ -56,4 +56,8 @@ insert into user( harvest_address ) values (#{harvestAddress})
     <select id="findAll" resultType="Integer">
         SELECT count(*) FROM `user`
     </select>
+
+    <insert id="addid" parameterType="com.medical.entity.User">
+    insert into user (username,name,doid) values (#{username},#{name},#{doid});
+    </insert>
 </mapper>
