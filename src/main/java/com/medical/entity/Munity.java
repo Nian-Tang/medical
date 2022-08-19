@@ -48,5 +48,7 @@ package com.medical.entity;
             */
     private Integer uid;
 
+    private Integer fabulous;
+
 
 }

@@ -49,4 +49,8 @@ package com.medical.entity;
     private String reservationNo;
 
 
+    private Hospital hospital;
+
+    private Department department;
+
 }

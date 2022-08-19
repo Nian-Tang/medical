@@ -39,7 +39,7 @@ public class TimInoculationController {
      * 查询我预约的疫苗 李沅斌
      */
     @GetMapping("/selectTiminoculation")
-    public TimInoculation byid(User user){
+    public List<TimInoculation> byid(User user){
         return timInoculationMapper.selectTimInoculation(user.getId());
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface TimInoculationMapper extends BaseMapper<TimInoculation> {
 
-    TimInoculation selectTimInoculation(Integer id);
+    List<TimInoculation> selectTimInoculation(Integer id);
 
     Vaccine byVaccineName(String name);
 

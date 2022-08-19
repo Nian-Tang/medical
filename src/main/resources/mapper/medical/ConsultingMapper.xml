@@ -3,7 +3,7 @@
 <mapper namespace="com.medical.mapper.ConsultingMapper">
     <select id="selectDoctorUser" resultMap="selectDoctorUser">
         SELECT *FROM consulting a JOIN `user` b JOIN doctor c ON a.u_id=b.id
-WHERE a.doid=c.id AND c.id=2;
+WHERE a.doid=c.id AND c.id=#{b.doid};
     </select>
     <resultMap id="selectDoctorUser" type="consulting">
         <id column="id" property="id"/>
