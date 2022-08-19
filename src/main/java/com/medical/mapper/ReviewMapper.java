@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface ReviewMapper extends BaseMapper<Review> {
 
+    Boolean saveDrugReview(Integer userId, Integer DrugId, String userReview);
 }
