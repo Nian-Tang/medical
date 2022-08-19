@@ -29,7 +29,7 @@ SELECT h.h_name,h.address,d.d_name FROM hospital h JOIN department d WHERE h.id=
         SELECT *FROM
         department a JOIN`user` b JOIN doctor c join hospital d
         ON a.id =c.did
-        WHERE b.doid=c.id AND a.id = #{Department.id}
+        WHERE b.doid=c.id AND a.id = #{Department.id}  AND c.hid=d.id and b.u_state="在线"
     </select>
     <resultMap id="selectDepartment" type="com.medical.entity.Department">
         <id column="id" property="id"/>
