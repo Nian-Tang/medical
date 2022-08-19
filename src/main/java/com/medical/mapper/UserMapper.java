@@ -31,4 +31,6 @@ public interface UserMapper extends BaseMapper<User> {
     int upuser(User user);
 
     int findAll(User user);
+
+    int addid(User user);
 }

@@ -1,17 +1,24 @@
 package com.medical.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.medical.entity.Consulting;
+import com.medical.entity.Doctor;
 import com.medical.entity.User;
 import com.medical.mapper.ConsultingMapper;
+import com.medical.mapper.DepartmentMapper;
+import com.medical.mapper.DoctorMapper;
+import com.medical.mapper.UserMapper;
+import com.medical.service.DoctorService;
+import com.medical.service.UserService;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +36,14 @@ import java.util.Map;
 public class DoctorController {
     @Autowired
     private ConsultingMapper consultingMapper;
+
+    @Autowired
+    private DoctorService doctorService;
+
+    @Autowired
+    private DoctorMapper doctorMapper;
+    @Autowired
+    private UserService userService;
     /**
      * 医生查询有的用户 李沅斌
      * @param user
@@ -49,5 +64,27 @@ public class DoctorController {
         map.put("查询成功","msg");
         return map;
     }
+
+/*
+添加医生id，同时user表里面增加新的用户id
+ */
+
+    @PostMapping("/adddo")
+    public Map<String,Object> add(Doctor doctor){
+        double add= doctorService.adddo(doctor);
+        Integer id = doctor.getId();
+        User user=new User();
+        user.setDoid(id);
+        user.setUsername(doctor.getTitle());
+        user.setName(doctor.getBrief());
+        userService.addid(user);
+        HashMap<String,Object> map= new HashMap<>();
+        map.put("code","200");
+        map.put("msg","增加成功");
+        map.put("data",add);
+        return map;
+    }
+
+
 
 }

@@ -27,4 +27,6 @@ public interface UserService extends IService<User> {
 
     List<User> byCases(Integer id);
 
+    double addid(User user);
+
 }

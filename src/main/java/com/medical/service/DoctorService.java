@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-08-11
  */
 public interface DoctorService extends IService<Doctor> {
-
+   double adddo(Doctor doctor);
 }
