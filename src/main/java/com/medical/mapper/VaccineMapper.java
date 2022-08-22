@@ -2,7 +2,6 @@ package com.medical.mapper;
 
 import com.medical.entity.Vaccine;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -14,5 +13,4 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface VaccineMapper extends BaseMapper<Vaccine> {
 
-    boolean updateNum(@Param("pram")Vaccine vaccine);
 }

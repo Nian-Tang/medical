@@ -13,5 +13,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface VaccineService extends IService<Vaccine> {
 
-    boolean updateNum(Vaccine vaccine);
 }

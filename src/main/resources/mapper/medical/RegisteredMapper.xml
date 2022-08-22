@@ -1,28 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.RegisteredMapper">
-    <select id="selectRegistered" resultMap="registered">
-        SELECT *FROM registered a,hospital b,department c
-        WHERE a.hid = b.id AND a.did = c.id AND a.uid = #{uid};
-    </select>
-    <resultMap id="registered" type="com.medical.entity.Registered">
-        <id column="id" property="id"/>
-        <result column="uid" property="uid"/>
-        <result column="appointment" property="appointment"/>
-        <result column="reservation_no" property="reservationNo"/>
-        <association column="hid" property="hospital" javaType="hospital">
-            <id column="id" property="id"/>
-            <result property="hName" column="h_name"/>
-            <result column="address" property="address"/>
-            <result column="h_tel" property="hTel"/>
-            <result column="information" property="information"/>
-        </association>
-        <association property="department" column="did" javaType="department">
-            <id column="id" property="id"/>
-            <result column="d_name" property="dName"/>
-            <result column="Entry_date" property="entryDate"/>
-            <result column="hid" property="hid"/>
-        </association>
-    </resultMap>
 
 </mapper>
