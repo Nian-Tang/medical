@@ -13,7 +13,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface MunityService extends IService<Munity> {
 
-    boolean updateShelves(Munity munity);
-
-    Munity byMunity(Integer id);
 }

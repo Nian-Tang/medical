@@ -20,8 +20,6 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-
             /**
             * 药品名称
             */

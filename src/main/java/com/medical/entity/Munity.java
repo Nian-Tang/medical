@@ -21,8 +21,6 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-
             /**
             * 小标题
             */
@@ -47,8 +45,6 @@ package com.medical.entity;
             * 用户id
             */
     private Integer uid;
-
-    private Integer fabulous;
 
 
 }

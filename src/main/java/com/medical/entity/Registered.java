@@ -21,8 +21,6 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-
             /**
             * 用户id
             */
@@ -48,9 +46,5 @@ package com.medical.entity;
             */
     private String reservationNo;
 
-
-    private Hospital hospital;
-
-    private Department department;
 
 }
