@@ -30,5 +30,9 @@ package com.medical.entity;
             */
     private Integer uiid;
 
+    /**
+     * 被关注的文章Id
+     */
+    private Integer mid;
 
 }

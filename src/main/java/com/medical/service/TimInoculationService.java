@@ -2,6 +2,9 @@ package com.medical.service;
 
 import com.medical.entity.TimInoculation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.medical.entity.Vaccine;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-08-11
  */
 public interface TimInoculationService extends IService<TimInoculation> {
+    Vaccine byVaccineName(String name);
 
+    List<TimInoculation> whetherVaccine(Integer id,String name);
+
+    int addTimInoculation(TimInoculation timInoculation);
+
+    TimInoculation byId(String hName);
+
+    List<TimInoculation> gettim(int id);
+
+    TimInoculation byTimInoculation(Integer id);
 }

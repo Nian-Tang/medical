@@ -2,6 +2,9 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.IdType;
+    import com.baomidou.mybatisplus.annotation.TableId;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -20,6 +23,9 @@ package com.medical.entity;
     public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
             /**
             * 医生录入时间
@@ -66,5 +72,6 @@ package com.medical.entity;
             */
     private Float consultPrice;
 
+    private User users;
 
 }

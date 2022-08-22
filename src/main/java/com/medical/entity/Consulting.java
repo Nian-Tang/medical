@@ -2,6 +2,8 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,9 +23,12 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 创建时间
             */
+    @JsonFormat(pattern = "yyyy-MM-dd-hh-mm-ss")
     private LocalDateTime createDate;
 
             /**
@@ -51,5 +56,12 @@ package com.medical.entity;
             */
     private Integer doid;
 
+    private User user;
+
+    private Doctor doctor;
+
+    public String getDescribe() {
+        return describe;
+    }
 
 }

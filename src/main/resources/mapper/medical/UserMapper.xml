@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.UserMapper">
+    <select id="selectUser" resultType="consulting">
+    SELECT * FROM  consulting where u_id=#{id}
+</select>
 
+    <resultMap id="byCases" type="com.medical.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+
+        <collection property="consulting" ofType="com.medical.entity.Consulting">
+            <id property="id" column="id"/>
+            <result property="createDate" column="create_date"/>
+            <result property="describe" column="describe"/>
+            <result property="cState" column="c_state"/>
+            <result property="describle" column="describle"/>
+            <result property="uId" column="u_id"/>
+            <result property="doid" column="doid"/>
+        </collection>
+    </resultMap>
+
+    <sql id="select">
+        from
+         user right outer JOIN consulting
+         on
+         user.id=consulting.u_id where user.id=#{id}
+    </sql>
+
+    <select id="findCases"  resultMap="byCases">
+        select consulting.*,user.username
+        <include refid="select"></include>
+    </select>
+
+    <select id="byCases" resultMap="byCases">
+        select consulting.describe
+        <include refid="select"></include>
+    </select>
+
+    <select id="getUser" resultType="com.medical.entity.User">
+select harvest_address from `user` where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.medical.entity.User">
+insert into user( harvest_address ) values (#{harvestAddress})
+    </insert>
+
+    <update id="update" parameterType="com.medical.entity.User">
+    update user set harvest_address=#{harvestAddress} where id=#{id}
+    </update>
+
+    <update id="upuser" parameterType="com.medical.entity.User">
+    update user set harvest_address=#{harvestAddress} where id=#{id}
+    </update>
+
+    <select id="findAll" resultType="Integer">
+        SELECT count(*) FROM `user`
+    </select>
+
+    <insert id="addid" parameterType="com.medical.entity.User">
+    insert into user (username,name,doid) values (#{username},#{name},#{doid});
+    </insert>
 </mapper>

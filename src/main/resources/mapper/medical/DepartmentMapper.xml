@@ -2,4 +2,63 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.DepartmentMapper">
 
+    <resultMap id="Department" type="com.medical.entity.Department">
+        <id property="id" column="id"/>
+        <result property="dName" column="d_name"/>
+        <result property="entryDate" column="Entry_date"/>
+        <result property="hid" column="h_id"/>
+
+        <collection property="hospital" javaType="com.medical.entity.Hospital">
+            <id property="id" column="id"/>
+            <result property="hName" column="h_name"/>
+            <result property="address" column="address"/>
+            <result property="hTel" column="h_tel"/>
+            <result property="information" column="information"/>
+        </collection>
+    </resultMap>
+
+    <select id="getDep" resultType="com.medical.entity.Department">
+select d_name from `department` where id=#{id}
+    </select>
+
+    <select id="getks" resultMap="Department">
+SELECT h.h_name,h.address,d.d_name FROM hospital h JOIN department d WHERE h.id=d.hid AND d.hid=#{hid}
+    </select>
+
+    <select id="selectDoctor" resultMap="selectDepartment">
+        SELECT *FROM
+        department a JOIN`user` b JOIN doctor c join hospital d
+        ON a.id =c.did
+        WHERE b.doid=c.id AND a.id = #{Department.id}  AND c.hid=d.id and b.u_state="在线"
+    </select>
+    <resultMap id="selectDepartment" type="com.medical.entity.Department">
+        <id column="id" property="id"/>
+        <result column="d_name" property="dName"/>
+        <result column="Entry_date" property="entryDate"/>
+        <association property="doctors" javaType="com.medical.entity.Doctor">
+            <id column="id" property="id"/>
+            <result column="entry_date" property="entryDate"/>
+            <result column="title" property="title"/>
+            <result column="brief" property="brief"/>
+            <result column="point" property="point"/>
+            <result column="did" property="did"/>
+            <result column="hid" property="hid"/>
+            <result column="hours_practice" property="hoursPractice"/>
+            <result column="excel" property="excel"/>
+            <result column="consult_price" property="consultPrice"/>
+            <result column="working_date" property="workingDate"/>
+            <result column="after_work" property="afterWork"/>
+            <association property="users" javaType="com.medical.entity.User">
+                <id column="id" property="id"/>
+                <result column="name" property="name"/>
+            </association>
+        </association>
+        <association property="hospitals" column="id" javaType="com.medical.entity.Hospital">
+            <id column="id" property="id"/>
+            <result column="h_name" property="hName"/>
+            <result column="address" property="address"/>
+            <result column="h_tel"  property="hTel"/>
+            <result column="information" property="information"/>
+        </association>
+    </resultMap>
 </mapper>

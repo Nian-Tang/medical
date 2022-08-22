@@ -2,4 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.VaccineMapper">
 
+    <update id="updateNum" parameterType="com.medical.entity.Vaccine">
+        UPDATE vaccine set
+        vname=#{pram.vname}
+        ,vaccine_type=#{pram.vaccineType},
+        vaccine_date=#{pram.vaccineDate},
+        preautions=#{pram.preautions},
+        number=#{pram.number},
+        wid=#{pram.wid},
+        am_lnoculation_date=#{pram.amLnoculationDate},
+        am_over_date=#{pram.amOverDate},
+        pm_lnoculation_date=#{pram.pmLnoculationDate}
+        ,pm_over_date=#{pram.pmOverDate}
+        WHERE
+        id=#{pram.id}
+    </update>
 </mapper>

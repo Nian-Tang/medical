@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-08-11
  */
 public interface DoctorMapper extends BaseMapper<Doctor> {
-
+   int adddo(Doctor doctor);
 }
