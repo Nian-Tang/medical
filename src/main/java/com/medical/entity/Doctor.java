@@ -21,6 +21,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
             /**
             * 医生录入时间
             */
@@ -66,5 +68,6 @@ package com.medical.entity;
             */
     private Float consultPrice;
 
+    private User users;
 
 }
